@@ -133,7 +133,7 @@ section{padding:6rem 5%;}
 .edu-thesis p{color:var(--muted);font-size:0.875rem;line-height:1.7;}
 
 /* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-top:3rem;max-width:600px;}
 .contact-info p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:2rem;}
 .contact-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;}
 .contact-item-icon{width:42px;height:42px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;}
@@ -501,28 +501,23 @@ footer p{color:var(--muted);font-size:0.85rem;}
             <a href="https://github.com/youcieff" target="_blank">github.com/youcieff</a>
           </div>
         </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.21 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Phone</div>
+            <a href="tel:+201270535210">+20 127 053 5210</a>
+          </div>
+        </div>
       </div>
-      <div class="contact-form reveal">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="John Doe"/>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="john@company.com"/>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me about your project or opportunity..."></textarea>
-        </div>
-        <button class="form-btn">Send Message →</button>
-      </div>
+
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Youssef Maged · Built with passion · Full Stack Developer</p>
+  <p>© 2026 Youssef Maged · Full Stack Developer · <a href="https://youcieff.github.io/Portfolio/" style="color:var(--accent2);text-decoration:none;">youcieff.github.io/Portfolio</a></p>
 </footer>
 
 <script>
