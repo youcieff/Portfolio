@@ -117,6 +117,14 @@
   /* ── Project panel ── */
   const overlay = $("#panelOverlay");
   const panel = $("#projectPanel");
+  const panelBody = $(".panel-body");
+  const scrollHint = $("#scrollHint");
+
+  if (panelBody && scrollHint) {
+    panelBody.addEventListener("scroll", () => {
+      scrollHint.style.opacity = panelBody.scrollTop > 20 ? "0" : "0.9";
+    }, { passive: true });
+  }
 
   function openPanel(id) {
     const p = PROJECTS.find((x) => x.id === id);
@@ -127,6 +135,8 @@
     document.body.style.overflow = "hidden";
     overlay?.classList.add("open");
     panel?.classList.add("open");
+    if (panelBody) panelBody.scrollTop = 0;
+    if (scrollHint) scrollHint.style.opacity = "0.9";
   }
 
   function closePanel() {
