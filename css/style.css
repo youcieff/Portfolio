@@ -738,12 +738,56 @@ footer a{color:var(--accent2);text-decoration:none}
 }
 
 /* print resume */
+.print-cv{display:none}
+
 @media print{
-  body::before,.ambient,.scroll-progress,nav,.hero,.projects-section,.skills-section,.edu-section,.contact-grid,footer,.panel-overlay,.project-panel{display:none!important}
-  .resume-section{display:block!important;padding:0}
-  .resume-doc{border:none;background:#fff;color:#000}
-  .resume-block p,.resume-block li,.resume-name,.resume-project h5{color:#000}
-  .resume-print{display:none}
+  body::before,.ambient,.scroll-progress,.custom-cursor,nav,.hero,.about-strip,.projects-section,.skills-section,.edu-section,#contact,footer,.panel-overlay,.project-panel{display:none!important}
+
+  *{animation:none!important;transition:none!important}
+
+  body{background:#fff}
+  .resume-section{display:block!important;padding:0;margin:0}
+  .resume-section .wrap{padding:0;max-width:none}
+  .resume-section .section-tag,.resume-section .section-heading,.resume-section .section-lead{display:none}
+
+  /* hide the on-screen dark glassmorphic card entirely */
+  .resume-doc{display:none!important}
+
+  /* show the plain print-only replica of the original Word/PDF CV */
+  .print-cv{
+    display:block;color:#000;background:#fff;
+    font-family:'Calibri','Carlito',Arial,sans-serif;
+    font-size:9.5pt;line-height:1.38;
+  }
+
+  .pcv-header{border-bottom:2px solid #000;padding-bottom:0.35em;margin-bottom:0.7em}
+  .pcv-name{font-size:17pt;font-weight:700;letter-spacing:0.01em}
+  .pcv-role{font-size:10pt;font-weight:600;color:#222;margin-top:0.15em}
+  .pcv-contact{font-size:8.7pt;color:#333;margin-top:0.2em}
+
+  .pcv-section{margin-bottom:0.85em}
+  .pcv-section h5{
+    font-size:9.7pt;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;
+    border-bottom:1px solid #999;padding-bottom:0.15em;margin:0 0 0.4em;
+    page-break-after:avoid;break-after:avoid;
+  }
+  .pcv-section p{margin:0.1em 0 0.35em;font-size:8.9pt}
+  .pcv-section p strong{font-weight:700}
+
+  .pcv-project,.pcv-job{margin-bottom:0.55em;page-break-inside:avoid;break-inside:avoid}
+  .pcv-project-head{display:flex;justify-content:space-between;align-items:baseline;gap:0.75em}
+  .pcv-project-title{font-weight:700;font-size:9.4pt}
+  .pcv-project-badge{font-size:8.4pt;color:#444;white-space:nowrap}
+  .pcv-project-meta{font-size:8.3pt;color:#555;margin:0.12em 0 0.3em}
+
+  .pcv-project ul,.pcv-job ul{list-style:none;margin:0.15em 0 0;padding:0}
+  .pcv-project li,.pcv-job li{
+    font-size:8.8pt;margin-bottom:0.2em;padding-left:0.95em;position:relative;
+    orphans:2;widows:2;
+  }
+  .pcv-project li::before,.pcv-job li::before{content:'▸';position:absolute;left:0;color:#000}
+
+  @page{size:letter;margin:14mm 17.6mm}
 }
 
 @media(prefers-reduced-motion:reduce){
