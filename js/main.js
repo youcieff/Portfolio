@@ -122,7 +122,11 @@
 
   if (panelBody && scrollHint) {
     panelBody.addEventListener("scroll", () => {
-      scrollHint.style.opacity = panelBody.scrollTop > 20 ? "0" : "0.9";
+      if (panelBody.scrollTop > 20) {
+        scrollHint.classList.remove("show");
+      } else {
+        scrollHint.classList.add("show");
+      }
     }, { passive: true });
   }
 
@@ -136,7 +140,7 @@
     overlay?.classList.add("open");
     panel?.classList.add("open");
     if (panelBody) panelBody.scrollTop = 0;
-    if (scrollHint) scrollHint.style.opacity = "0.9";
+    if (scrollHint) scrollHint.classList.add("show");
   }
 
   function closePanel() {
@@ -144,6 +148,7 @@
     panel?.classList.remove("open");
     document.body.style.overflow = "";
     activeProject = null;
+    if (scrollHint) scrollHint.classList.remove("show");
   }
 
   overlay?.addEventListener("click", closePanel);
