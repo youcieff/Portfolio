@@ -375,7 +375,7 @@ section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4
 /* gallery */
 .gallery-wrap{position:relative;background:#000;border-bottom:1px solid var(--border)}
 .gallery-main{
-  position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;
+  position:relative;width:100%;aspect-ratio:16/10;max-height:45vh;overflow:hidden;
   touch-action:pan-y;
 }
 .gallery-main img{
