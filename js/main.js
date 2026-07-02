@@ -59,20 +59,37 @@
     }
   }
 
-  const spyObs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        navLinks.forEach((a) => {
-          a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id);
-        });
-        updateIndicator();
+  let tickingSpy = false;
+  function updateNavSpy() {
+    let currentId = "";
+    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+      currentId = "contact";
+    } else {
+      sections.forEach((s) => {
+        const top = s.getBoundingClientRect().top;
+        if (top < window.innerHeight * 0.45) {
+          currentId = s.id;
+        }
       });
-    },
-    { threshold: 0.35, rootMargin: "-20% 0px -55% 0px" }
-  );
-  sections.forEach((s) => spyObs.observe(s));
+    }
+
+    if (currentId) {
+      navLinks.forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + currentId);
+      });
+      updateIndicator();
+    }
+    tickingSpy = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!tickingSpy) {
+      window.requestAnimationFrame(updateNavSpy);
+      tickingSpy = true;
+    }
+  }, { passive: true });
   window.addEventListener("resize", updateIndicator);
+  setTimeout(updateNavSpy, 100);
 
   /* ── Build project rows ── */
   const projectsList = $("#projectsList");
@@ -128,6 +145,10 @@
         scrollHint.classList.add("show");
       }
     }, { passive: true });
+
+    scrollHint.addEventListener("click", () => {
+      panelBody.scrollTo({ top: window.innerHeight * 0.35, behavior: "smooth" });
+    });
   }
 
   function openPanel(id) {
