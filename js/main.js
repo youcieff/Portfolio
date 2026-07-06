@@ -8,6 +8,30 @@
   let galleryIndex = 0;
   let touchStartX = 0;
 
+  /* ── Loader ── */
+  window.addEventListener("load", () => {
+    const loader = $("#loader");
+    if (loader) {
+      setTimeout(() => {
+        loader.classList.add("fade-out");
+        setTimeout(() => loader.remove(), 800);
+      }, 1500);
+    }
+  });
+
+  /* ── Theme Toggle ── */
+  const themeToggle = $("#themeToggle");
+  const currentTheme = localStorage.getItem("theme");
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+  }
+  themeToggle?.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    const newTheme = isLight ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+
   /* ── Scroll progress ── */
   const progress = $(".scroll-progress");
   function onScroll() {
@@ -303,9 +327,11 @@
   /* ── Premium Mouse Effects (Desktop only) ── */
   if (window.matchMedia("(pointer: fine)").matches) {
     const cursor = $(".custom-cursor");
+    const trail = $(".cursor-trail");
     let cX = window.innerWidth / 2, cY = window.innerHeight / 2, mX = cX, mY = cY;
+    let tX = cX, tY = cY;
     const orbs = $$(".orb");
-    const hCard = $(".hero-card");
+    const hCard = $(".hero-photo-wrapper");
 
     window.addEventListener("mousemove", (e) => {
       mX = e.clientX; mY = e.clientY;
@@ -317,7 +343,9 @@
 
     function animCursor() {
       cX += (mX - cX) * 0.15; cY += (mY - cY) * 0.15;
+      tX += (cX - tX) * 0.15; tY += (cY - tY) * 0.15;
       if (cursor) cursor.style.transform = `translate(${cX}px, ${cY}px) translate(-50%, -50%)`;
+      if (trail) trail.style.transform = `translate(${tX}px, ${tY}px) translate(-50%, -50%)`;
       requestAnimationFrame(animCursor);
     }
     animCursor();

@@ -7,7 +7,13 @@
 <meta name="author" content="Youssef Maged Hanna"/>
 <meta property="og:title" content="Youssef Maged — Full Stack Developer"/>
 <meta property="og:description" content="I build modern, scalable web applications — from AI-powered EdTech to luxury e-commerce. Ready for full-time, freelance, and collaborations."/>
+<meta property="og:image" content="og-cover.png"/>
+<meta property="og:url" content="https://portfolio-seven-wheat-91.vercel.app/"/>
 <meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Youssef Maged — Full Stack Developer"/>
+<meta name="twitter:description" content="I build modern, scalable web applications — from AI-powered EdTech to luxury e-commerce. Ready for full-time, freelance, and collaborations."/>
+<meta name="twitter:image" content="og-cover.png"/>
 <title>Youssef Maged — Full Stack Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -16,8 +22,13 @@
 </head>
 <body>
 
+<div id="loader" class="loader">
+  <div class="loader-inner">YM</div>
+</div>
+
 <div class="scroll-progress" aria-hidden="true"></div>
 <div class="custom-cursor" aria-hidden="true"></div>
+<div class="cursor-trail" aria-hidden="true"></div>
 
 <div class="ambient" aria-hidden="true">
   <div class="orb orb-1"></div>
@@ -37,6 +48,11 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="cv.pdf" download class="nav-btn-ghost">Download CV</a>
       <a href="#contact" class="nav-cta">Let's Talk</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -49,6 +65,7 @@
     <a href="#skills">Skills</a>
     <a href="#resume">Resume</a>
     <a href="#education">Education</a>
+    <a href="cv.pdf" download>Download CV</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -106,19 +123,35 @@
   </div>
 </section>
 
+<div class="divider-line" aria-hidden="true"></div>
+
 <!-- ABOUT -->
 <section class="about-strip">
   <div class="wrap about-inner reveal">
     <div class="about-label">About</div>
-    <p class="about-text">
-      Recent Computer Science graduate specializing in the <strong>MERN stack</strong> and <strong>AI integration</strong>.
-      I've built five full-stack applications from scratch — including an AI-powered EdTech SaaS as my graduation project.
-      What drives me is the moment an idea becomes something real: a pipeline that transcribes a lecture in seconds,
-      a booking flow that feels effortless, a UI that makes someone pause and say <em>this is nice</em>.
-      I'm looking for a team where I can grow, ship, and keep raising the bar.
-    </p>
+    <div class="about-main">
+      <div class="about-text-block">
+        <p class="about-text">
+          Recent Computer Science graduate specializing in the <strong>MERN stack</strong> and <strong>AI integration</strong>.
+          I've built five full-stack applications from scratch — including an AI-powered EdTech SaaS as my graduation project.
+          What drives me is the moment an idea becomes something real: a pipeline that transcribes a lecture in seconds,
+          a booking flow that feels effortless, a UI that makes someone pause and say <em>this is nice</em>.
+          I'm looking for a team where I can grow, ship, and keep raising the bar.
+        </p>
+        <p class="hero-blurb" style="margin-top:1.2rem">
+          I'm a 22-year-old developer from Giza, Egypt. I didn't just study software — I built things. 5 full-stack projects shipped from scratch, one of them my graduation project powered by real AI. Before code, I worked with my hands and talked to people for a living. That taught me precision and how to communicate. Now I do both — through software.
+        </p>
+      </div>
+      <div class="about-photo-wrapper">
+        <div class="hero-photo-glow"></div>
+        <img src="my%20photo/photo.png" alt="Youssef Maged" class="hero-photo dark-photo"/>
+        <img src="my%20photo/light.png" alt="Youssef Maged" class="hero-photo light-photo"/>
+      </div>
+    </div>
   </div>
 </section>
+
+<div class="divider-line" aria-hidden="true"></div>
 
 <!-- PROJECTS -->
 <section class="projects-section" id="projects">
@@ -185,6 +218,8 @@
   </div>
 </aside>
 
+<div class="divider-line" aria-hidden="true"></div>
+
 <!-- SKILLS -->
 <section class="skills-section" id="skills">
   <div class="wrap">
@@ -227,6 +262,8 @@
     </div>
   </div>
 </section>
+
+<div class="divider-line" aria-hidden="true"></div>
 
 <!-- RESUME -->
 <section class="resume-section" id="resume">
@@ -491,6 +528,8 @@
   </div>
 </section>
 
+<div class="divider-line" aria-hidden="true"></div>
+
 <!-- EDUCATION -->
 <section class="edu-section" id="education">
   <div class="wrap">
@@ -518,6 +557,8 @@
     </div>
   </div>
 </section>
+
+<div class="divider-line" aria-hidden="true"></div>
 
 <!-- CONTACT -->
 <section id="contact">
