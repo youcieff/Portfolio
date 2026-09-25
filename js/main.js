@@ -115,6 +115,42 @@
   window.addEventListener("resize", updateIndicator);
   setTimeout(updateNavSpy, 100);
 
+  /* Contact form: send messages to the portfolio owner's inbox. */
+  $("#contactForm")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const status = $("#contactFormStatus");
+    const fields = new FormData(form);
+    if (String(fields.get("_honey") || "").trim()) return;
+    const payload = {
+      name: String(fields.get("name") || "").trim(),
+      email: String(fields.get("email") || "").trim(),
+      _replyto: String(fields.get("email") || "").trim(),
+      message: String(fields.get("message") || "").trim(),
+      _subject: `Portfolio message from ${String(fields.get("name") || "Visitor").trim()}`,
+      _honey: ""
+    };
+    if (!payload.name || !payload.email || !payload.message) return;
+    if (submitButton) { submitButton.disabled = true; submitButton.textContent = "Sending…"; }
+    if (status) { status.className = "contact-form-note is-sending"; status.textContent = "Sending your message…"; }
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/youssefmaged051@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!response.ok || ![true, "true"].includes(result?.success)) throw new Error("Send failed");
+      form.reset();
+      if (status) { status.className = "contact-form-note is-sent"; status.textContent = "Message sent. If this is the first message from the site, I need to confirm FormSubmit’s activation email before new messages arrive."; }
+    } catch {
+      if (status) { status.className = "contact-form-note is-error"; status.innerHTML = 'Message didn’t send. Please email me directly at <a href="mailto:youssefmaged051@gmail.com">youssefmaged051@gmail.com</a>.'; }
+    } finally {
+      if (submitButton) { submitButton.disabled = false; submitButton.textContent = "Send message"; }
+    }
+  });
+
   /* ── Build project rows ── */
   const projectsList = $("#projectsList");
   if (projectsList && typeof PROJECTS !== "undefined") {

@@ -586,6 +586,17 @@
         <div class="contact-card-value">github.com/youcieff</div>
       </a>
     </div>
+    <form class="contact-form reveal" id="contactForm">
+      <h3>Send me a message</h3>
+      <div class="contact-form-fields">
+        <label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="Your name"/></label>
+        <label>Your email<input type="email" name="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"/></label>
+        <label class="contact-message-field">Message<textarea name="message" rows="5" required maxlength="3000" placeholder="Tell me what you're building…"></textarea></label>
+      </div>
+      <label class="contact-honeypot" aria-hidden="true">Leave this blank<input name="_honey" tabindex="-1" autocomplete="off"/></label>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="contact-form-note" id="contactFormStatus" aria-live="polite">Messages are sent to my email. I’ll reply to the address you provide.</p>
+    </form>
   </div>
 </section>
 
