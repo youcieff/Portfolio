@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Youssef Maged Hanna — Full Stack Developer specializing in MERN stack, AI integration, and production-ready web applications."/>
+<meta name="author" content="Youssef Maged Hanna"/>
+<meta property="og:title" content="Youssef Maged — Full Stack Developer"/>
+<meta property="og:description" content="I build modern, scalable web applications — from AI-powered EdTech to luxury e-commerce. Ready for full-time, freelance, and collaborations."/>
+<meta property="og:image" content="og-cover.png"/>
+<meta property="og:url" content="https://portfolio-seven-wheat-91.vercel.app/"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Youssef Maged — Full Stack Developer"/>
+<meta name="twitter:description" content="I build modern, scalable web applications — from AI-powered EdTech to luxury e-commerce. Ready for full-time, freelance, and collaborations."/>
+<meta name="twitter:image" content="og-cover.png"/>
+<title>Youssef Maged — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div id="loader" class="loader">
+  <div class="loader-inner">YM</div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="custom-cursor" aria-hidden="true"></div>
+<div class="cursor-trail" aria-hidden="true"></div>
+
+<div class="ambient" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#about" class="nav-logo">YM<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <a href="cv.pdf" download class="nav-btn-ghost">Download CV</a>
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#about">About</a>
+    <a href="#projects">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
+    <a href="#education">Education</a>
+    <a href="cv.pdf" download>Download CV</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-in">Ready for what's next</div>
+      <h1 class="hero-title">
+        <span class="line"><span>Hi, I'm</span></span>
+        <span class="line"><span class="accent">Youssef Maged</span></span>
+        <span class="line"><span id="typewriter">Full Stack Developer</span><span class="cursor-blink">|</span></span>
+      </h1>
+      <p class="hero-desc fade-in fade-in-d1">
+        I turn complex ideas into clean, production-ready products — AI-powered platforms, real-time systems, and bilingual web apps built with the MERN stack. Not currently employed; fully prepared and excited to join a team that builds things that matter.
+      </p>
+      <div class="hero-actions fade-in fade-in-d2">
+        <a href="#projects" class="btn btn-primary">See My Work</a>
+        <a href="#resume" class="btn btn-ghost">View Resume</a>
+      </div>
+      <div class="hero-links fade-in fade-in-d3">
+        <a href="https://github.com/youcieff" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/youssef-maged-664ab4396" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:youssefmaged051@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card fade-in fade-in-d2">
+      <div class="card-dots"><span></span><span></span><span></span></div>
+      <div class="code-block">
+        <div><span class="k">const</span> developer = {</div>
+        <div>&nbsp;&nbsp;<span class="k">name</span>: <span class="s">"Youssef Maged Hanna"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="k">role</span>: <span class="s">"Full Stack Developer"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="k">status</span>: <span class="s">"Open to work"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="k">stack</span>: [<span class="s">"MERN"</span>, <span class="s">"Next.js"</span>, <span class="s">"AI"</span>],</div>
+        <div>&nbsp;&nbsp;<span class="k">location</span>: <span class="s">"6th of October, Giza"</span></div>
+        <div>}<span class="c">;</span></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Projects</div></div>
+        <div class="stat"><div class="stat-num">MERN</div><div class="stat-lbl">Core Stack</div></div>
+        <div class="stat"><div class="stat-num">AI</div><div class="stat-lbl">Integrated</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line" aria-hidden="true"></div>
+
+<!-- ABOUT -->
+<section class="about-strip">
+  <div class="wrap about-inner reveal">
+    <div class="about-label">About</div>
+    <div class="about-main">
+      <div class="about-text-block">
+        <p class="about-text">
+          Recent Computer Science graduate specializing in the <strong>MERN stack</strong> and <strong>AI integration</strong>.
+          I've built six full-stack applications from scratch — including an AI-powered EdTech SaaS as my graduation project.
+          What drives me is the moment an idea becomes something real: a pipeline that transcribes a lecture in seconds,
+          a booking flow that feels effortless, a UI that makes someone pause and say <em>this is nice</em>.
+          I'm looking for a team where I can grow, ship, and keep raising the bar.
+        </p>
+        <p class="hero-blurb" style="margin-top:1.2rem">
+          I'm a 22-year-old developer from Giza, Egypt. I didn't just study software — I built things. 5 full-stack projects shipped from scratch, one of them my graduation project powered by real AI. Before code, I worked with my hands and talked to people for a living. That taught me precision and how to communicate. Now I do both — through software.
+        </p>
+      </div>
+      <div class="about-photo-wrapper">
+        <div class="hero-photo-glow"></div>
+        <img src="my%20photo/photo.png" alt="Youssef Maged" class="hero-photo dark-photo"/>
+        <img src="my%20photo/light.png" alt="Youssef Maged" class="hero-photo light-photo"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line" aria-hidden="true"></div>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-tag">Selected Work</p>
+      <h2 class="section-heading">Projects that ship</h2>
+      <p class="section-lead">Six full-stack applications — each solving a real problem. Tap any project to explore every screen, feature, and technical detail.</p>
+    </div>
+    <div id="projectsList"></div>
+  </div>
+</section>
+
+<!-- PROJECT PANEL -->
+<div class="panel-overlay" id="panelOverlay" aria-hidden="true"></div>
+<aside class="project-panel" id="projectPanel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+  <header class="panel-header">
+    <div class="panel-header-left">
+      <span class="panel-num" id="panelNum">01</span>
+      <h2 class="panel-title" id="panelTitle">Project</h2>
+    </div>
+    <button class="panel-close" id="panelClose" aria-label="Close project">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </header>
+  <div class="panel-body">
+    <div class="gallery-wrap">
+      <div class="gallery-main">
+        <img id="galleryMainImg" src="" alt="Project screenshot"/>
+        <button class="gallery-nav prev" id="galleryPrev" aria-label="Previous image">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="gallery-nav next" id="galleryNext" aria-label="Next image">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <span class="gallery-counter" id="galleryCounter">1 / 1</span>
+      </div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </div>
+    <div class="panel-content">
+      <p class="panel-subtitle" id="panelSubtitle"></p>
+      <p class="panel-overview" id="panelOverview"></p>
+      <div class="panel-actions">
+        <a class="panel-btn panel-btn-live" id="panelLive" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Live Demo
+        </a>
+        <a class="panel-btn panel-btn-gh" id="panelGithub" href="#" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Source Code
+        </a>
+      </div>
+      <h3 class="panel-section-title">Key Features</h3>
+      <div class="features-grid" id="panelFeatures"></div>
+      <h3 class="panel-section-title">Tech Stack</h3>
+      <div class="stack-row" id="panelStack"></div>
+      <h3 class="panel-section-title">What Makes It Stand Out</h3>
+      <ul class="highlights-list" id="panelHighlights"></ul>
+    </div>
+  </div>
+  <div class="scroll-hint" id="scrollHint">
+    <span>Scroll to read description</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</aside>
+
+<div class="divider-line" aria-hidden="true"></div>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-tag">Toolkit</p>
+      <h2 class="section-heading">Skills & Technologies</h2>
+      <p class="section-lead">Full-stack development centered on the MERN ecosystem, with hands-on experience in AI pipelines, real-time systems, and cloud deployment.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span>React.js</span><span>Next.js 15</span><span>JavaScript ES6+</span>
+          <span>TypeScript</span><span>Tailwind CSS</span><span>Framer Motion</span>
+          <span>React Flow</span><span>Zustand</span><span>Vite</span><span>i18next</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-d1">
+        <h3>Backend</h3>
+        <div class="skill-tags">
+          <span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+          <span>Mongoose</span><span>REST APIs</span><span>JWT Auth</span>
+          <span>WebSockets</span><span>Socket.io</span><span>RBAC</span><span>Joi</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-d2">
+        <h3>AI & Integrations</h3>
+        <div class="skill-tags">
+          <span>LLaMA 3.3 (Groq)</span><span>OpenAI Whisper</span><span>ElevenLabs TTS</span>
+          <span>Semantic Chunking</span><span>SM-2 Algorithm</span><span>RAG</span><span>FFmpeg</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-d3">
+        <h3>DevOps & Tools</h3>
+        <div class="skill-tags">
+          <span>Git & GitHub</span><span>Docker</span><span>Vercel</span>
+          <span>Postman</span><span>Linux</span><span>Multer</span><span>Helmet</span><span>Rate Limiting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line" aria-hidden="true"></div>
+
+<!-- RESUME -->
+<section class="resume-section" id="resume">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-tag">Curriculum Vitae</p>
+      <h2 class="section-heading">Resume</h2>
+      <p class="section-lead">Everything a recruiter needs — structured, scannable, and printable.</p>
+    </div>
+
+    <div class="resume-doc reveal">
+      <div class="resume-doc-header">
+        <div>
+          <div class="resume-name">Youssef Maged Hanna</div>
+          <div class="resume-role">Full Stack Developer · MERN Stack · AI Integration</div>
+          <div class="resume-contact-row">
+            <a href="mailto:youssefmaged051@gmail.com">youssefmaged051@gmail.com</a>
+            <a href="tel:+201270535210">+20 127 053 5210</a>
+            <span>6th of October, Giza, Egypt</span>
+            <a href="https://github.com/youcieff" target="_blank" rel="noopener">github.com/youcieff</a>
+            <a href="https://linkedin.com/in/youssef-maged-664ab4396" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <button class="resume-print" id="printResume">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+          Print / Save PDF
+        </button>
+      </div>
+
+      <div class="resume-body">
+        <div class="resume-block">
+          <h4>Professional Summary</h4>
+          <p>Full Stack Developer with a B.Sc. in Computer Science & AI, specializing in the MERN stack. Shipped 5 full-stack projects from scratch — AI-powered EdTech SaaS, e-commerce, hotel booking, food delivery, and project management. Before pivoting to software, I worked in technical and customer-facing roles that sharpened my precision and communication. Now I bring that same work ethic to building real products. Looking for a team where I can contribute from day one and grow fast.</p>
+        </div>
+
+        <div class="resume-block">
+          <h4>Technical Skills</h4>
+          <ul>
+            <li><strong>Frontend:</strong> React.js, Next.js 15, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS v4, Framer Motion, Zustand, React Flow, Vite</li>
+            <li><strong>Backend:</strong> Node.js, Express.js, MongoDB, Mongoose, REST APIs, JWT + Refresh Tokens, Socket.io, RBAC, Joi, Multer, Nodemailer</li>
+            <li><strong>AI & ML:</strong> LLaMA-3 70B (Groq LPU), OpenAI Whisper, ElevenLabs TTS, SM-2 Algorithm, Semantic Chunking, RAG</li>
+            <li><strong>DevOps:</strong> Git, GitHub, Docker, Vercel, Postman, Linux, npm</li>
+          </ul>
+        </div>
+
+        <div class="resume-block">
+          <h4>Projects</h4>
+
+          <div class="resume-project">
+            <h5>EduVisionAI — AI-Powered Adaptive Learning Platform</h5>
+            <div class="meta">Graduation Project · 2026 · Next.js 15, Node.js, MongoDB, LLaMA-3 70B, Whisper, Socket.io, Docker</div>
+            <ul>
+              <li>Built an end-to-end SaaS EdTech platform transforming YouTube links, videos, PDFs, and images into interactive study experiences (summaries, quizzes, flashcards, mind maps) via a multimodal AI pipeline — processing a 30-min lecture in under 130 seconds</li>
+              <li>Engineered real-time collaborative study rooms (Socket.io), a gamification system (XP, skill tree, leaderboard), and spaced-repetition flashcards (SM-2 algorithm)</li>
+              <li>Shipped production-grade security (Helmet, rate limiting, JWT refresh tokens, MongoDB sanitization) and a multi-tier AI fallback system with key rotation for 99%+ uptime</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <h5>BookTheBest — Luxury Hotel Booking System</h5>
+            <div class="meta">Full-Stack · 2025 · React.js, Vite, Node.js, Express.js, MongoDB, JWT, Multer, Joi</div>
+            <ul>
+              <li>Developed a complete hotel booking platform with dark-luxury glassmorphic UI, JWT + bcrypt auth, and RBAC separating Admin and User dashboards</li>
+              <li>Built Admin Console with real-time inventory management, live booking tracking, WhatsApp guest integration, and Multer-powered image uploads</li>
+              <li>Applied Joi global request validation, pagination on listing endpoints, and a full Postman API collection</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <h5>Velora — Luxury E-Commerce Platform</h5>
+            <div class="meta">Full-Stack · 2025 · Next.js 15, Tailwind CSS v4, Node.js, MongoDB, JWT, Framer Motion, i18next</div>
+            <ul>
+              <li>Built a bilingual (AR/EN) e-commerce platform with full RTL/LTR switching, glassmorphic design system, JWT auth, RBAC, and Admin Dashboard with full product/category CRUD</li>
+              <li>Engineered multilingual smart search matching against bilingual keyword metadata; global cart with localStorage persistence and Framer Motion micro-animations</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <h5>Talabat Junior — Bilingual Food Delivery Platform</h5>
+            <div class="meta">Full-Stack · 2025 · Next.js, Tailwind CSS, Node.js, MongoDB, JWT, Framer Motion</div>
+            <ul>
+              <li>Full-stack food delivery app with bilingual support, Neon-Cyberpunk UI, complete cart/checkout/promo flow, and JWT + RBAC admin dashboard</li>
+              <li>Engineered a Demo Mode with client-side data fallback mechanism ensuring 100% Vercel uptime without a live backend</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <h5>FlowBoard — Project Management SaaS Dashboard</h5>
+            <div class="meta">Frontend · 2025 · Next.js 15, Tailwind CSS v4, React Context API, HTML5 Drag & Drop</div>
+            <ul>
+              <li>Kanban dashboard with native HTML5 Drag & Drop, real-time RBAC Role Switcher (Admin/Member/Viewer), and full board state persisted via localStorage</li>
+              <li>Designed bespoke SVG/CSS KPI charts and radial gauges for team workload visualization — no external charting libraries</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h4>Work Experience</h4>
+
+          <div class="resume-project">
+            <h5>Sales Associate — Smoke House</h5>
+            <div class="meta">2023 – 2024</div>
+            <ul>
+              <li>Engaged directly with customers to understand needs, recommend products, and deliver a consistently positive in-store experience; contributed to sales targets through upselling and relationship-building</li>
+            </ul>
+          </div>
+
+          <div class="resume-project">
+            <h5>CNC Laser Cutting Operator — Civar</h5>
+            <div class="meta">2021 – 2022</div>
+            <ul>
+              <li>Operated CNC laser cutting machines for precision steel and stainless steel fabrication; configured cutting dimensions and geometric specifications to meet exact production requirements</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h4>Education</h4>
+          <p><strong>B.Sc. Computer Science & Artificial Intelligence</strong><br/>
+          Software Engineering Program · Capital University<br/>
+          Sep 2022 – Jun 2026 (Expected)<br/>
+          Cairo, Egypt</p>
+          <p style="margin-top:0.75rem"><strong>Graduation Project:</strong> EduVisionAI — AI-powered adaptive learning platform</p>
+        </div>
+
+        <div class="resume-block">
+          <h4>Certifications & Courses</h4>
+
+          <div class="resume-project">
+            <h5>Full Stack Web Development — MERN Stack</h5>
+            <div class="meta">Kimmit Academy · May 2025</div>
+            <ul>
+              <li>Node.js, Express.js, React.js, MongoDB, REST APIs, JWT Authentication, full-stack deployment</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h4>Languages</h4>
+          <p>Arabic — Native (C2) &nbsp;·&nbsp; English — Intermediate (B1)</p>
+        </div>
+
+        <div class="resume-block">
+          <h4>Interests</h4>
+          <p>Artificial Intelligence & LLMs · Full Stack Development · EdTech · Open Source · UI/UX Design</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRINT-ONLY CV: hidden on screen, shown only in @media print. Mirrors the original Word/PDF CV exactly (font, layout, density, page count) instead of the dark on-screen card. -->
+    <div class="print-cv" aria-hidden="true">
+      <div class="pcv-header">
+        <div class="pcv-name">YOUSSEF MAGED HANNA</div>
+        <div class="pcv-role">Full Stack Developer · MERN Stack · AI Integration</div>
+        <div class="pcv-contact">youssefmaged051@gmail.com · +20 127 053 5210 · Cairo, Egypt</div>
+        <div class="pcv-contact">github.com/youcieff · linkedin.com/in/youssef-maged-664ab4396 · portfolio-seven-wheat-91.vercel.app</div>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Professional Summary</h5>
+        <p>Full Stack Developer with a B.Sc. in Computer Science & AI, specializing in the MERN stack. Shipped 5 full-stack projects from scratch — AI-powered EdTech SaaS, e-commerce, hotel booking, food delivery, and project management. Before pivoting to software, I worked in technical and customer-facing roles that sharpened my precision and communication. Now I bring that same work ethic to building real products. Looking for a team where I can contribute from day one and grow fast.</p>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Technical Skills</h5>
+        <p><strong>Frontend:</strong> React.js, Next.js 15, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS v4, Framer Motion, Zustand, React Flow, Vite</p>
+        <p><strong>Backend:</strong> Node.js, Express.js, MongoDB, Mongoose, REST APIs, JWT + Refresh Tokens, Socket.io, RBAC, Joi, Multer, Nodemailer</p>
+        <p><strong>AI & ML:</strong> LLaMA-3 70B (Groq LPU), OpenAI Whisper, ElevenLabs TTS, SM-2 Algorithm, Semantic Chunking, RAG</p>
+        <p><strong>DevOps:</strong> Git, GitHub, Docker, Vercel, Postman, Linux, npm</p>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Projects</h5>
+
+        <div class="pcv-project">
+          <div class="pcv-project-head"><span class="pcv-project-title">EduVisionAI — AI-Powered Adaptive Learning Platform</span><span class="pcv-project-badge">Graduation Project | 2026</span></div>
+          <div class="pcv-project-meta">Next.js 15 · Node.js · MongoDB · LLaMA-3 70B · Whisper · Socket.io · Docker &nbsp; Live ↗ · GitHub ↗</div>
+          <ul>
+            <li>Built an end-to-end SaaS EdTech platform transforming YouTube links, videos, PDFs, and images into interactive study experiences (summaries, quizzes, flashcards, mind maps) via a multimodal AI pipeline — processing a 30-min lecture in under 130 seconds</li>
+            <li>Engineered real-time collaborative study rooms (Socket.io), a gamification system (XP, skill tree, leaderboard), and spaced-repetition flashcards (SM-2 algorithm)</li>
+            <li>Shipped production-grade security (Helmet, rate limiting, JWT refresh tokens, MongoDB sanitization) and a multi-tier AI fallback system with key rotation for 99%+ uptime</li>
+          </ul>
+        </div>
+
+        <div class="pcv-project">
+          <div class="pcv-project-head"><span class="pcv-project-title">BookTheBest — Luxury Hotel Booking System</span><span class="pcv-project-badge">Full-Stack | 2025</span></div>
+          <div class="pcv-project-meta">React.js · Vite · Node.js · Express.js · MongoDB · JWT · Multer · Joi &nbsp; Live ↗ · GitHub ↗</div>
+          <ul>
+            <li>Developed a complete hotel booking platform with dark-luxury glassmorphic UI, JWT + bcrypt auth, and RBAC separating Admin and User dashboards</li>
+            <li>Built Admin Console with real-time inventory management, live booking tracking, WhatsApp guest integration, and Multer-powered image uploads</li>
+            <li>Applied Joi global request validation, pagination on listing endpoints, and a full Postman API collection</li>
+          </ul>
+        </div>
+
+        <div class="pcv-project">
+          <div class="pcv-project-head"><span class="pcv-project-title">Velora — Luxury E-Commerce Platform</span><span class="pcv-project-badge">Full-Stack | 2025</span></div>
+          <div class="pcv-project-meta">Next.js 15 · Tailwind CSS v4 · Node.js · MongoDB · JWT · Framer Motion · i18next &nbsp; Live ↗ · GitHub ↗</div>
+          <ul>
+            <li>Built a bilingual (AR/EN) e-commerce platform with full RTL/LTR switching, glassmorphic design system, JWT auth, RBAC, and Admin Dashboard with full product/category CRUD</li>
+            <li>Engineered multilingual smart search matching against bilingual keyword metadata; global cart with localStorage persistence and Framer Motion micro-animations</li>
+          </ul>
+        </div>
+
+        <div class="pcv-project">
+          <div class="pcv-project-head"><span class="pcv-project-title">Talabat Junior — Bilingual Food Delivery Platform</span><span class="pcv-project-badge">Full-Stack | 2025</span></div>
+          <div class="pcv-project-meta">Next.js · Tailwind CSS · Node.js · MongoDB · JWT · Framer Motion &nbsp; Live ↗ · GitHub ↗</div>
+          <ul>
+            <li>Full-stack food delivery app with bilingual support, Neon-Cyberpunk UI, complete cart/checkout/promo flow, and JWT + RBAC admin dashboard</li>
+            <li>Engineered a Demo Mode with client-side data fallback mechanism ensuring 100% Vercel uptime without a live backend</li>
+          </ul>
+        </div>
+
+        <div class="pcv-project">
+          <div class="pcv-project-head"><span class="pcv-project-title">FlowBoard — Project Management SaaS Dashboard</span><span class="pcv-project-badge">Frontend | 2025</span></div>
+          <div class="pcv-project-meta">Next.js 15 · Tailwind CSS v4 · React Context API · HTML5 Drag & Drop &nbsp; Live ↗ · GitHub ↗</div>
+          <ul>
+            <li>Kanban dashboard with native HTML5 Drag & Drop, real-time RBAC Role Switcher (Admin/Member/Viewer), and full board state persisted via localStorage</li>
+            <li>Designed bespoke SVG/CSS KPI charts and radial gauges for team workload visualization — no external charting libraries</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Work Experience</h5>
+        <div class="pcv-job">
+          <div class="pcv-project-head"><span class="pcv-project-title">Sales Associate — Smoke House</span><span class="pcv-project-badge">2023 – 2024</span></div>
+          <ul>
+            <li>Engaged directly with customers to understand needs, recommend products, and deliver a consistently positive in-store experience; contributed to sales targets through upselling and relationship-building</li>
+          </ul>
+        </div>
+        <div class="pcv-job">
+          <div class="pcv-project-head"><span class="pcv-project-title">CNC Laser Cutting Operator — Civar</span><span class="pcv-project-badge">2021 – 2022</span></div>
+          <ul>
+            <li>Operated CNC laser cutting machines for precision steel and stainless steel fabrication; configured cutting dimensions and geometric specifications to meet exact production requirements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Education</h5>
+        <div class="pcv-project-head"><span class="pcv-project-title">B.Sc. Computer Science & AI — Software Engineering</span><span class="pcv-project-badge">Sep 2022 – Jun 2026</span></div>
+        <p>Capital University · Faculty of Computer Science & AI · Cairo, Egypt</p>
+        <p><strong>Graduation Project:</strong> EduVisionAI — AI-powered adaptive learning platform</p>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Certifications & Courses</h5>
+        <div class="pcv-project-head"><span class="pcv-project-title">Full Stack Web Development — MERN Stack</span><span class="pcv-project-badge">May 2025</span></div>
+        <p>Kimmit Academy · Node.js, Express.js, React.js, MongoDB, REST APIs, JWT Authentication, full-stack deployment</p>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Languages</h5>
+        <p>Arabic — Native (C2) &nbsp;&nbsp; English — Intermediate (B1)</p>
+      </div>
+
+      <div class="pcv-section">
+        <h5>Interests</h5>
+        <p>Artificial Intelligence & LLMs · Full Stack Development · EdTech · Open Source · UI/UX Design</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line" aria-hidden="true"></div>
+
+<!-- EDUCATION -->
+<section class="edu-section" id="education">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-tag">Background</p>
+      <h2 class="section-heading">Education</h2>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science — Computer Science & Artificial Intelligence</div>
+        <div class="edu-school">Capital University · Faculty of Computer Science & AI · Cairo, Egypt</div>
+        <div class="edu-meta">Software Engineering Program · Sep 2022 – Jun 2026 (Expected Graduation)</div>
+        <div class="edu-thesis">
+          <strong>Graduation Project:</strong> EduVisionAI — An AI-powered adaptive learning platform that automatically transforms educational content into interactive study experiences using LLMs, speech-to-text, and real-time collaboration.
+        </div>
+      </div>
+    </div>
+    <div class="interests-row reveal">
+      <span class="interest">AI & LLMs</span>
+      <span class="interest">Full Stack Dev</span>
+      <span class="interest">EdTech</span>
+      <span class="interest">Open Source</span>
+      <span class="interest">UI/UX Design</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line" aria-hidden="true"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-tag">Get in Touch</p>
+      <h2 class="section-heading">Let's build something</h2>
+      <p class="section-lead">Open to full-time roles, freelance projects, and collaborations. If you have an opportunity or just want to talk — I'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:youssefmaged051@gmail.com" class="contact-card reveal">
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">youssefmaged051@gmail.com</div>
+      </a>
+      <a href="tel:+201270535210" class="contact-card reveal reveal-d1">
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value">+20 127 053 5210</div>
+      </a>
+      <a href="https://www.linkedin.com/in/youssef-maged-664ab4396" target="_blank" rel="noopener" class="contact-card reveal reveal-d2">
+        <div class="contact-card-label">LinkedIn</div>
+        <div class="contact-card-value">youssef-maged-664ab4396</div>
+      </a>
+      <a href="https://github.com/youcieff" target="_blank" rel="noopener" class="contact-card reveal reveal-d3">
+        <div class="contact-card-label">GitHub</div>
+        <div class="contact-card-value">github.com/youcieff</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Youssef Maged Hanna · Full Stack Developer · Built with care in Giza, Egypt</p>
+</footer>
+
+<script src="js/projects.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

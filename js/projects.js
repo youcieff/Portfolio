@@ -1,5 +1,32 @@
 const PROJECTS = [
   {
+    id: "celia-games",
+    num: "01",
+    title: "Celia Games",
+    subtitle: "Arabic-first real-time multiplayer games",
+    badge: "React · WebRTC · 2026",
+    accent: "#62d7c5",
+    accentSoft: "rgba(98, 215, 197, 0.14)",
+    overview: "A mobile-first collection of eight familiar games, playable locally or online with friends through PeerJS and WebRTC. Built with an Arabic-first RTL interface, touch-friendly controls, and a polished dark visual style.",
+    features: [
+      { title: "Peer-to-Peer Multiplayer", desc: "Online matches connect through PeerJS and WebRTC without a custom game server." },
+      { title: "Eight Games", desc: "Sea Battle, Dots & Boxes, Guess the Code, Memory Match, Ultimate Tic-Tac-Toe, Connect 4, Guess the Word, and Tic-Tac-Toe." },
+      { title: "Arabic RTL Interface", desc: "Native Arabic typography and right-to-left layouts across the game experience." },
+      { title: "Mobile-First Controls", desc: "Touch-friendly interactions, including swipe placement for Sea Battle." },
+      { title: "Local and Online Play", desc: "Play on one device or invite a friend to join an online match." },
+      { title: "Polished Visual Design", desc: "Dark glass panels, gradient lighting, and fluid animations." }
+    ],
+    stack: ["React", "Vite", "Tailwind CSS v3", "PeerJS", "WebRTC"],
+    highlights: ["Eight games gathered in one responsive platform", "Peer-to-peer online matches without a custom backend", "Arabic RTL experience designed for touch screens"],
+    live: "https://celia-games-nine.vercel.app/",
+    github: "https://github.com/youcieff/Celia-Games-",
+    images: [
+      "projects/CeliaGames/1.jpeg", "projects/CeliaGames/2.jpeg", "projects/CeliaGames/3.jpeg",
+      "projects/CeliaGames/4.jpeg", "projects/CeliaGames/5.jpeg", "projects/CeliaGames/6.jpeg",
+      "projects/CeliaGames/7.jpeg"
+    ]
+  },
+  {
     id: "eduvision",
     num: "01",
     title: "EduVisionAI",
