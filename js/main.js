@@ -9,7 +9,7 @@
   let touchStartX = 0;
 
   /* ── Loader ── */
-  window.addEventListener("load", () => {
+  const hideLoader = () => {
     const loader = $("#loader");
     if (loader) {
       setTimeout(() => {
@@ -17,7 +17,9 @@
         setTimeout(() => loader.remove(), 800);
       }, 1500);
     }
-  });
+  };
+  if (document.readyState === "complete") hideLoader();
+  else window.addEventListener("load", hideLoader, { once: true });
 
   /* ── Theme Toggle ── */
   const themeToggle = $("#themeToggle");
