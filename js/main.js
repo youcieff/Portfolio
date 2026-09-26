@@ -149,7 +149,7 @@
         throw new Error(result?.message || result?.error || `The email service rejected the request (${response.status}).`);
       }
       form.reset();
-      if (status) { status.className = "contact-form-note is-sent"; status.textContent = "Thanks — your message was submitted. If this is the first message through the site, I’ll confirm FormSubmit’s activation email before future messages arrive."; }
+      if (status) { status.className = "contact-form-note is-sent"; status.textContent = "Thanks! Your message has been sent. I’ll get back to you soon."; }
     } catch (error) {
       console.error("Portfolio contact form submission failed:", error);
       if (status) {
