@@ -128,9 +128,11 @@
     const payload = {
       name: String(fields.get("name") || "").trim(),
       email: String(fields.get("email") || "").trim(),
+      phone: String(fields.get("phone") || "").trim(),
+      subject: String(fields.get("subject") || "").trim(),
       _replyto: String(fields.get("email") || "").trim(),
       message: String(fields.get("message") || "").trim(),
-      _subject: `Portfolio message from ${String(fields.get("name") || "Visitor").trim()}`,
+      _subject: String(fields.get("subject") || "").trim() || `Portfolio message from ${String(fields.get("name") || "Visitor").trim()}`,
       _honey: ""
     };
     if (!payload.name || !payload.email || !payload.message) return;
