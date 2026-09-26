@@ -142,12 +142,24 @@
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload)
       });
-      const result = await response.json();
-      if (!response.ok || ![true, "true"].includes(result?.success)) throw new Error("Send failed");
+      let result;
+      try { result = await response.json(); }
+      catch { throw new Error("The email service returned an unreadable response."); }
+      if (!response.ok || ![true, "true"].includes(result?.success)) {
+        throw new Error(result?.message || result?.error || `The email service rejected the request (${response.status}).`);
+      }
       form.reset();
       if (status) { status.className = "contact-form-note is-sent"; status.textContent = "Thanks — your message was submitted. If this is the first message through the site, I’ll confirm FormSubmit’s activation email before future messages arrive."; }
-    } catch {
-      if (status) { status.className = "contact-form-note is-error"; status.innerHTML = 'Message didn’t send. Please email me directly at <a href="mailto:youssefmaged051@gmail.com">youssefmaged051@gmail.com</a>.'; }
+    } catch (error) {
+      console.error("Portfolio contact form submission failed:", error);
+      if (status) {
+        status.className = "contact-form-note is-error";
+        status.textContent = `Message didn’t send. ${error instanceof TypeError ? "Check your internet connection or try again." : error.message} You can also email me at `;
+        const emailLink = document.createElement("a");
+        emailLink.href = "mailto:youssefmaged051@gmail.com";
+        emailLink.textContent = "youssefmaged051@gmail.com";
+        status.append(emailLink, ".");
+      }
     } finally {
       if (submitButton) { submitButton.disabled = false; submitButton.textContent = "Send message"; }
     }

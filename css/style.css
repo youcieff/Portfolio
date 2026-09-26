@@ -320,7 +320,7 @@ section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4
   background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
 }
 .about-inner{
-  display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;
+  display:grid;grid-template-columns:120px minmax(0,1fr);gap:1.5rem;align-items:start;
 }
 .about-label{
   font-family:var(--font-display);font-size:0.75rem;font-weight:700;
@@ -331,7 +331,7 @@ section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4
 
 /* About section with photo */
 .about-inner{
-  display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;
+  display:grid;grid-template-columns:120px minmax(0,1fr);gap:1.5rem;align-items:start;
 }
 .about-main{
   display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:center;
