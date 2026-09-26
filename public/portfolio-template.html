@@ -52,7 +52,7 @@
         <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       </button>
-      <a href="cv.pdf" download class="nav-btn-ghost">Download CV</a>
+      <a href="#resume" class="nav-btn-ghost">View Resume</a>
       <a href="#contact" class="nav-cta">Let's Talk</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -65,7 +65,7 @@
     <a href="#skills">Skills</a>
     <a href="#resume">Resume</a>
     <a href="#education">Education</a>
-    <a href="cv.pdf" download>Download CV</a>
+    <a href="#resume">View Resume</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -81,7 +81,7 @@
         <span class="line"><span id="typewriter">Full Stack Developer</span><span class="cursor-blink">|</span></span>
       </h1>
       <p class="hero-desc fade-in fade-in-d1">
-        I turn complex ideas into clean, production-ready products — AI-powered platforms, real-time systems, and bilingual web apps built with the MERN stack. Not currently employed; fully prepared and excited to join a team that builds things that matter.
+        I build web products that solve real problems — from AI-powered learning tools to multiplayer games. I care about clear interfaces, thoughtful details, and the moment an idea becomes something people can use.
       </p>
       <div class="hero-actions fade-in fade-in-d2">
         <a href="#projects" class="btn btn-primary">See My Work</a>
@@ -132,14 +132,11 @@
     <div class="about-main">
       <div class="about-text-block">
         <p class="about-text">
-          Recent Computer Science graduate specializing in the <strong>MERN stack</strong> and <strong>AI integration</strong>.
-          I've built six full-stack applications from scratch — including an AI-powered EdTech SaaS as my graduation project.
-          What drives me is the moment an idea becomes something real: a pipeline that transcribes a lecture in seconds,
-          a booking flow that feels effortless, a UI that makes someone pause and say <em>this is nice</em>.
-          I'm looking for a team where I can grow, ship, and keep raising the bar.
+          I'm a Computer Science graduate based in Giza, Egypt. I enjoy working across the stack — shaping the interface, building the logic behind it, and making the whole experience feel clear.
+          My projects range from AI-assisted learning and online stores to booking flows and multiplayer games. Each one has taught me to think through the details and build something people can actually try.
         </p>
         <p class="hero-blurb" style="margin-top:1.2rem">
-          I'm a 22-year-old developer from Giza, Egypt. I didn't just study software — I built things. 5 full-stack projects shipped from scratch, one of them my graduation project powered by real AI. Before code, I worked with my hands and talked to people for a living. That taught me precision and how to communicate. Now I do both — through software.
+          Before software, I worked in customer-facing and hands-on technical roles. Those jobs taught me to listen, work carefully, and communicate — skills I still rely on when building with a team.
         </p>
       </div>
       <div class="about-photo-wrapper">
@@ -159,7 +156,12 @@
     <div class="reveal">
       <p class="section-tag">Selected Work</p>
       <h2 class="section-heading">Projects that ship</h2>
-      <p class="section-lead">Six full-stack applications — each solving a real problem. Tap any project to explore every screen, feature, and technical detail.</p>
+      <p class="section-lead">A selection of six web projects. Open one to see the screens, the thinking behind it, and the tools I used.</p>
+    </div>
+    <div class="project-filter-bar">
+      <label for="projectSearch">Find a project</label>
+      <input id="projectSearch" type="search" placeholder="Search projects or tools" autocomplete="off"/>
+      <span id="projectResultCount" aria-live="polite">6 projects</span>
     </div>
     <div id="projectsList"></div>
   </div>
@@ -296,7 +298,7 @@
       <div class="resume-body">
         <div class="resume-block">
           <h4>Professional Summary</h4>
-          <p>Full Stack Developer with a B.Sc. in Computer Science & AI, specializing in the MERN stack. Shipped 5 full-stack projects from scratch — AI-powered EdTech SaaS, e-commerce, hotel booking, food delivery, and project management. Before pivoting to software, I worked in technical and customer-facing roles that sharpened my precision and communication. Now I bring that same work ethic to building real products. Looking for a team where I can contribute from day one and grow fast.</p>
+          <p>Full Stack Developer with a B.Sc. in Computer Science & AI, focused on React, Node.js, and MongoDB. I’ve built web projects across AI-assisted learning, commerce, booking, food delivery, project management, and multiplayer games. Before software, customer-facing and hands-on technical roles taught me to listen closely, work carefully, and communicate clearly.</p>
         </div>
 
         <div class="resume-block">
@@ -311,6 +313,15 @@
 
         <div class="resume-block">
           <h4>Projects</h4>
+
+          <div class="resume-project">
+            <h5>Celia Games — Arabic-First Multiplayer Game Collection</h5>
+            <div class="meta">Personal Project · 2026 · React, Vite, Tailwind CSS, PeerJS, WebRTC</div>
+            <ul>
+              <li>Built a responsive collection of classic games with local play and real-time peer-to-peer matches through WebRTC.</li>
+              <li>Designed Arabic RTL layouts and touch-friendly mobile controls, including swipe placement in Sea Battle.</li>
+            </ul>
+          </div>
 
           <div class="resume-project">
             <h5>EduVisionAI — AI-Powered Adaptive Learning Platform</h5>
@@ -424,7 +435,7 @@
 
       <div class="pcv-section">
         <h5>Professional Summary</h5>
-        <p>Full Stack Developer with a B.Sc. in Computer Science & AI, specializing in the MERN stack. Shipped 5 full-stack projects from scratch — AI-powered EdTech SaaS, e-commerce, hotel booking, food delivery, and project management. Before pivoting to software, I worked in technical and customer-facing roles that sharpened my precision and communication. Now I bring that same work ethic to building real products. Looking for a team where I can contribute from day one and grow fast.</p>
+        <p>Full Stack Developer with a B.Sc. in Computer Science & AI, focused on React, Node.js, and MongoDB. Built web projects across AI-assisted learning, commerce, booking, food delivery, project management, and multiplayer games. Brings clear communication and careful execution from previous technical and customer-facing roles.</p>
       </div>
 
       <div class="pcv-section">
@@ -437,6 +448,15 @@
 
       <div class="pcv-section">
         <h5>Projects</h5>
+
+        <div class="pcv-project">
+          <div class="pcv-project-head"><span class="pcv-project-title">Celia Games — Arabic-First Multiplayer Game Collection</span><span class="pcv-project-badge">Personal Project | 2026</span></div>
+          <div class="pcv-project-meta">React · Vite · Tailwind CSS · PeerJS · WebRTC</div>
+          <ul>
+            <li>Built a responsive collection of classic games with local play and real-time peer-to-peer matches through WebRTC.</li>
+            <li>Designed Arabic RTL layouts and touch-friendly mobile controls, including swipe placement in Sea Battle.</li>
+          </ul>
+        </div>
 
         <div class="pcv-project">
           <div class="pcv-project-head"><span class="pcv-project-title">EduVisionAI — AI-Powered Adaptive Learning Platform</span><span class="pcv-project-badge">Graduation Project | 2026</span></div>

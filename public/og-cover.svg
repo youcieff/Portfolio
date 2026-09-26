@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="30" x2="1120" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#11101a"/><stop offset="1" stop-color="#07070a"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#8b7cf6" stop-opacity=".36"/><stop offset="1" stop-color="#8b7cf6" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" rx="28" fill="url(#bg)"/><circle cx="1000" cy="80" r="410" fill="url(#glow)"/>
+  <rect x="54" y="54" width="1092" height="522" rx="24" stroke="#ffffff" stroke-opacity=".12"/>
+  <text x="100" y="145" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">YM.</text>
+  <text x="96" y="310" fill="#f4f2fb" font-family="Arial,sans-serif" font-size="76" font-weight="700">Youssef Maged</text>
+  <text x="100" y="370" fill="#bbb6cb" font-family="Arial,sans-serif" font-size="30">Full Stack Developer · Giza, Egypt</text>
+  <rect x="100" y="428" width="374" height="2" fill="#8b7cf6"/>
+  <text x="100" y="485" fill="#b9b5c8" font-family="Arial,sans-serif" font-size="22">AI · Web apps · Multiplayer games</text>
+  <circle cx="1080" cy="500" r="11" fill="#8b7cf6"/>
+</svg>

@@ -143,7 +143,7 @@
       const result = await response.json();
       if (!response.ok || ![true, "true"].includes(result?.success)) throw new Error("Send failed");
       form.reset();
-      if (status) { status.className = "contact-form-note is-sent"; status.textContent = "Message sent. If this is the first message from the site, I need to confirm FormSubmit’s activation email before new messages arrive."; }
+      if (status) { status.className = "contact-form-note is-sent"; status.textContent = "Thanks — your message was submitted. If this is the first message through the site, I’ll confirm FormSubmit’s activation email before future messages arrive."; }
     } catch {
       if (status) { status.className = "contact-form-note is-error"; status.innerHTML = 'Message didn’t send. Please email me directly at <a href="mailto:youssefmaged051@gmail.com">youssefmaged051@gmail.com</a>.'; }
     } finally {
@@ -189,6 +189,26 @@
       projectsList.appendChild(row);
       revealObs.observe(row);
     });
+  }
+
+  /* Quick project search */
+  const projectSearch = $("#projectSearch");
+  const projectResultCount = $("#projectResultCount");
+  if (projectSearch && projectsList && typeof PROJECTS !== "undefined") {
+    const updateProjectSearch = () => {
+      const query = projectSearch.value.trim().toLocaleLowerCase();
+      let visibleCount = 0;
+      $$(".project-row", projectsList).forEach((row) => {
+        const project = PROJECTS.find((item) => item.id === row.dataset.id);
+        const haystack = [project?.title, project?.subtitle, project?.badge, project?.overview, ...(project?.stack || [])]
+          .join(" ").toLocaleLowerCase();
+        const matches = !query || haystack.includes(query);
+        row.hidden = !matches;
+        if (matches) visibleCount++;
+      });
+      if (projectResultCount) projectResultCount.textContent = `${visibleCount} of ${PROJECTS.length} projects`;
+    };
+    projectSearch.addEventListener("input", updateProjectSearch);
   }
 
   /* ── Project panel ── */

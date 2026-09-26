@@ -358,6 +358,12 @@ section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4
 
 /* ── PROJECTS LIST ── */
 .projects-section{background:transparent}
+.project-filter-bar{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin:1.5rem 0 1rem;padding:0 0 1rem;border-bottom:1px solid var(--border)}
+.project-filter-bar label{font-size:.78rem;font-weight:700;color:var(--muted)}
+.project-filter-bar input{width:min(100%,22rem);padding:.72rem .9rem;border:1px solid var(--border-hover);border-radius:10px;background:var(--surface);color:var(--text);font:400 .88rem var(--font-body)}
+.project-filter-bar input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.project-filter-bar span{margin-left:auto;color:var(--muted2);font-size:.76rem}
+.project-row[hidden]{display:none!important}
 
 .project-row{
   display:grid;grid-template-columns:80px 1fr;gap:clamp(1rem,3vw,2rem);
