@@ -738,7 +738,23 @@ section{position:relative;z-index:1;padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4
 .contact-honeypot{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .contact-form button:disabled{opacity:.65;cursor:wait}
 .contact-form-note{margin:.85rem 0 0;color:var(--muted);font-size:.78rem;line-height:1.6}
-.contact-form-note.is-sent{color:var(--green)}.contact-form-note.is-error{color:#fda4af}.contact-form-note a{color:var(--accent2)}
+.contact-form-note.is-sent{
+  --success:#34d399;
+  display:flex;align-items:center;gap:.7rem;margin-top:1rem;padding:.8rem 1rem;
+  border:1px solid rgba(52,211,153,.22);border-radius:12px;
+  background:linear-gradient(110deg,rgba(52,211,153,.11),rgba(52,211,153,.045));
+  color:#a7f3d0;font-size:.86rem;font-weight:600;
+}
+.contact-form-note.is-sent::before{
+  content:"✓";display:grid;place-items:center;flex:0 0 1.5rem;width:1.5rem;height:1.5rem;
+  border:1px solid rgba(52,211,153,.28);border-radius:50%;background:rgba(52,211,153,.12);
+  color:var(--success);font-size:.85rem;font-weight:800;line-height:1;
+}
+[data-theme="light"] .contact-form-note.is-sent{
+  --success:#15803d;color:#166534;border-color:rgba(21,128,61,.2);
+  background:linear-gradient(110deg,rgba(34,197,94,.1),rgba(34,197,94,.035));
+}
+.contact-form-note.is-error{color:#fda4af}.contact-form-note a{color:var(--accent2)}
 @media(max-width:560px){.contact-form-fields{grid-template-columns:1fr}.contact-message-field{grid-column:auto}}
 
 /* ── FOOTER ── */
