@@ -21,7 +21,7 @@ const PROJECTS = [
     live: "https://celia-games-nine.vercel.app/",
     github: "https://github.com/youcieff/Celia-Games-",
     images: [
-      "projects/CeliaGames/1.jpeg", "projects/CeliaGames/2.jpeg", "projects/CeliaGames/3.jpeg",
+      "projects/CeliaGames/2.jpeg", "projects/CeliaGames/1.jpeg", "projects/CeliaGames/3.jpeg",
       "projects/CeliaGames/4.jpeg", "projects/CeliaGames/5.jpeg", "projects/CeliaGames/6.jpeg",
       "projects/CeliaGames/7.jpeg"
     ]
