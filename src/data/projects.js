@@ -1,10 +1,10 @@
-const projectAssets = import.meta.glob("/projects/**/*.{png,jpg,jpeg,webp}", {
+const projectAssets = import.meta.glob("/projects/**/*.webp", {
   eager: true,
   query: "?url",
   import: "default",
 });
 const projectImage = (path) => projectAssets[`/projects/${path}`] || `/projects/${path}`;
-const imageSet = (folder, count, extension = "png") =>
+const imageSet = (folder, count, extension = "webp") =>
   Array.from({ length: count }, (_, index) => projectImage(`${folder}/${index + 1}.${extension}`));
 
 export const projects = [
@@ -15,7 +15,7 @@ export const projects = [
     stack: ["React", "Vite", "Tailwind CSS", "PeerJS", "WebRTC"],
     highlights: ["Eight games in one place", "Peer-to-peer online matches", "Arabic RTL and touch-friendly controls"],
     live: "https://celia-games-nine.vercel.app/", github: "https://github.com/youcieff/Celia-Games-",
-    images: imageSet("CeliaGames", 7, "jpeg"),
+    images: imageSet("CeliaGames", 7, "webp"),
   },
   {
     id: "eduvision", name: "EduVisionAI", category: "AI · EdTech", year: "2026",
@@ -24,7 +24,7 @@ export const projects = [
     stack: ["Next.js", "React", "Node.js", "Express", "MongoDB", "Socket.io", "Groq", "Whisper"],
     highlights: ["AI transcription and study materials", "Contextual chat and spaced-repetition cards", "Collaborative study rooms and Arabic/English UI"],
     live: "https://edu-vision-ai-rho.vercel.app", github: "https://github.com/youcieff/EduVisionAi",
-    images: ["project_image1_HomePage.png", "project_image9_uploadContent.png", "project_image11_studyContent.png", "project_image15_flashcards.png", "project_image19_chatWithContent.png", "project_image20_Notes.png", "project_image24_DailyReview.png", "project_image7_adminPortal.png"].map((path) => projectImage(`EduVisionAI/${path}`)),
+    images: ["project_image1_HomePage.webp", "project_image9_uploadContent.webp", "project_image11_studyContent.webp", "project_image15_flashcards.webp", "project_image19_chatWithContent.webp", "project_image20_Notes.webp", "project_image24_DailyReview.webp", "project_image7_adminPortal.webp"].map((path) => projectImage(`EduVisionAI/${path}`)),
   },
   {
     id: "bookthebest", name: "BookTheBest", category: "Full stack", year: "2025",

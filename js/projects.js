@@ -21,9 +21,9 @@ const PROJECTS = [
     live: "https://celia-games-nine.vercel.app/",
     github: "https://github.com/youcieff/Celia-Games-",
     images: [
-      "projects/CeliaGames/2.jpeg", "projects/CeliaGames/1.jpeg", "projects/CeliaGames/3.jpeg",
-      "projects/CeliaGames/4.jpeg", "projects/CeliaGames/5.jpeg", "projects/CeliaGames/6.jpeg",
-      "projects/CeliaGames/7.jpeg"
+      "projects/CeliaGames/2.webp", "projects/CeliaGames/1.webp", "projects/CeliaGames/3.webp",
+      "projects/CeliaGames/4.webp", "projects/CeliaGames/5.webp", "projects/CeliaGames/6.webp",
+      "projects/CeliaGames/7.webp"
     ]
   },
   {
@@ -56,18 +56,18 @@ const PROJECTS = [
     live: "https://edu-vision-ai-rho.vercel.app",
     github: "https://github.com/youcieff/EduVisionAi",
     images: [
-      "projects/EduVisionAI/project_image1_HomePage.png",
-      "projects/EduVisionAI/project_image9_uploadContent.png",
-      "projects/EduVisionAI/project_image11_studyContent.png",
-      "projects/EduVisionAI/project_image15_flashcards.png",
-      "projects/EduVisionAI/project_image19_chatWithContent.png",
-      "projects/EduVisionAI/project_image20_Notes.png",
-      "projects/EduVisionAI/project_image24_DailyReview.png",
-      "projects/EduVisionAI/project_image7_adminPortal.png",
-      "projects/EduVisionAI/Screenshot 2026-06-13 200913.png",
-      "projects/EduVisionAI/Screenshot 2026-06-13 201143.png",
-      "projects/EduVisionAI/Screenshot 2026-06-13 201926.png",
-      "projects/EduVisionAI/Screenshot 2026-06-13 203234.png"
+      "projects/EduVisionAI/project_image1_HomePage.webp",
+      "projects/EduVisionAI/project_image9_uploadContent.webp",
+      "projects/EduVisionAI/project_image11_studyContent.webp",
+      "projects/EduVisionAI/project_image15_flashcards.webp",
+      "projects/EduVisionAI/project_image19_chatWithContent.webp",
+      "projects/EduVisionAI/project_image20_Notes.webp",
+      "projects/EduVisionAI/project_image24_DailyReview.webp",
+      "projects/EduVisionAI/project_image7_adminPortal.webp",
+      "projects/EduVisionAI/Screenshot 2026-06-13 200913.webp",
+      "projects/EduVisionAI/Screenshot 2026-06-13 201143.webp",
+      "projects/EduVisionAI/Screenshot 2026-06-13 201926.webp",
+      "projects/EduVisionAI/Screenshot 2026-06-13 203234.webp"
     ]
   },
   {
@@ -97,11 +97,11 @@ const PROJECTS = [
     live: "https://project-23ruj.vercel.app",
     github: "https://github.com/youcieff/Book-The-Best-Luxury-Hotel-Booking-System-",
     images: [
-      "projects/Booking-system/1.png",
-      "projects/Booking-system/2.png",
-      "projects/Booking-system/3.png",
-      "projects/Booking-system/4.png",
-      "projects/Booking-system/5.png"
+      "projects/Booking-system/1.webp",
+      "projects/Booking-system/2.webp",
+      "projects/Booking-system/3.webp",
+      "projects/Booking-system/4.webp",
+      "projects/Booking-system/5.webp"
     ]
   },
   {
@@ -131,11 +131,11 @@ const PROJECTS = [
     live: "https://velorea-e-commerce-website-vfdi.vercel.app",
     github: "https://github.com/youcieff/VELOREA_E_commerce_website",
     images: [
-      "projects/velorea-e-commerce/1.png",
-      "projects/velorea-e-commerce/2.png",
-      "projects/velorea-e-commerce/3.png",
-      "projects/velorea-e-commerce/4.png",
-      "projects/velorea-e-commerce/5.png"
+      "projects/velorea-e-commerce/1.webp",
+      "projects/velorea-e-commerce/2.webp",
+      "projects/velorea-e-commerce/3.webp",
+      "projects/velorea-e-commerce/4.webp",
+      "projects/velorea-e-commerce/5.webp"
     ]
   },
   {
@@ -164,11 +164,11 @@ const PROJECTS = [
     live: "https://talabat-junior-delevery-website.vercel.app",
     github: "https://github.com/youcieff/Talabat_Junior-Delevery_website-",
     images: [
-      "projects/talabat-junior-delevery/1.png",
-      "projects/talabat-junior-delevery/2.png",
-      "projects/talabat-junior-delevery/3.png",
-      "projects/talabat-junior-delevery/4.png",
-      "projects/talabat-junior-delevery/5.png"
+      "projects/talabat-junior-delevery/1.webp",
+      "projects/talabat-junior-delevery/2.webp",
+      "projects/talabat-junior-delevery/3.webp",
+      "projects/talabat-junior-delevery/4.webp",
+      "projects/talabat-junior-delevery/5.webp"
     ]
   },
   {
@@ -197,9 +197,9 @@ const PROJECTS = [
     live: "https://project-management-team-collaborati-beta.vercel.app",
     github: "https://github.com/youcieff/Project-Management-Team-Collaboration",
     images: [
-      "projects/project-management-team-collaboration/1.png",
-      "projects/project-management-team-collaboration/2.png",
-      "projects/project-management-team-collaboration/3.png"
+      "projects/project-management-team-collaboration/1.webp",
+      "projects/project-management-team-collaboration/2.webp",
+      "projects/project-management-team-collaboration/3.webp"
     ]
   }
 ];
