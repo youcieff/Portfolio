@@ -135,7 +135,7 @@
       _subject: String(fields.get("subject") || "").trim() || `Portfolio message from ${String(fields.get("name") || "Visitor").trim()}`,
       _honey: ""
     };
-    if (!payload.name || !payload.email || !payload.message) return;
+    if (!payload.name || !payload.email || !payload.phone || !payload.message) return;
     if (submitButton) { submitButton.disabled = true; submitButton.textContent = "Sending…"; }
     if (status) { status.className = "contact-form-note is-sending"; status.textContent = "Sending your message…"; }
     try {
