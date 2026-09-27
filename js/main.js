@@ -5,6 +5,7 @@
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   let activeProject = null;
+  let activeVideoModalClose = null;
   let galleryIndex = 0;
   let touchStartX = 0;
 
@@ -268,10 +269,127 @@
     if (scrollHint) scrollHint.classList.remove("show");
   }
 
+  function createVideoShowcase(project) {
+    const section = document.createElement("section");
+    section.className = "video-showcase";
+    section.style.setProperty("--showcase-accent", project.accent || "var(--accent)");
+
+    const heading = document.createElement("div");
+    heading.className = "video-showcase-heading";
+    heading.innerHTML = '<span class="video-showcase-kicker">PROJECT FILM</span><h3>See it in action</h3><p>A closer look at the experience, from start to finish.</p>';
+
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "video-showcase-trigger";
+    trigger.setAttribute("aria-label", `Play ${project.title} product demo`);
+
+    const thumbnail = document.createElement("img");
+    thumbnail.className = "video-showcase-thumbnail";
+    thumbnail.src = encodeURI(project.demoVideoThumbnail || project.images[0]);
+    thumbnail.alt = `${project.title} product preview`;
+    thumbnail.loading = "lazy";
+    thumbnail.decoding = "async";
+
+    const shade = document.createElement("span");
+    shade.className = "video-showcase-shade";
+    shade.setAttribute("aria-hidden", "true");
+
+    const play = document.createElement("span");
+    play.className = "video-showcase-play";
+    play.setAttribute("aria-hidden", "true");
+    play.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.8c0-.8.87-1.28 1.54-.85l10.1 6.2a1 1 0 010 1.7l-10.1 6.2A1 1 0 018 18.2z"/></svg>';
+
+    const caption = document.createElement("span");
+    caption.className = "video-showcase-caption";
+    caption.innerHTML = '<span><strong>Watch the product demo</strong><small>Guided walkthrough · opens here</small></span><span class="video-showcase-arrow" aria-hidden="true">↗</span>';
+
+    trigger.append(thumbnail, shade, play, caption);
+    trigger.addEventListener("click", () => openVideoModal(project, trigger));
+    section.append(heading, trigger);
+    return section;
+  }
+
+  function openVideoModal(project, returnFocus) {
+    if (!/^[\w-]{11}$/.test(project.demoVideoId || "")) return;
+
+    const modal = document.createElement("div");
+    modal.className = "video-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", "videoModalTitle");
+
+    const dialog = document.createElement("div");
+    dialog.className = "video-modal-dialog";
+
+    const header = document.createElement("header");
+    header.className = "video-modal-header";
+    const titleWrap = document.createElement("div");
+    titleWrap.className = "video-modal-title-wrap";
+    titleWrap.innerHTML = '<span class="video-showcase-kicker">NOW PLAYING</span>';
+    const title = document.createElement("h2");
+    title.id = "videoModalTitle";
+    title.textContent = `${project.title} · Product Demo`;
+    titleWrap.append(title);
+
+    const closeButton = document.createElement("button");
+    closeButton.type = "button";
+    closeButton.className = "video-modal-close";
+    closeButton.setAttribute("aria-label", "Close video");
+    closeButton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+    header.append(titleWrap, closeButton);
+
+    const frame = document.createElement("div");
+    frame.className = "video-modal-frame";
+    const loading = document.createElement("div");
+    loading.className = "video-modal-loading";
+    loading.setAttribute("role", "status");
+    loading.innerHTML = '<span class="video-modal-spinner" aria-hidden="true"></span><span>Preparing your demo…</span>';
+
+    const clip = document.createElement("div");
+    clip.className = "video-modal-clip";
+    const iframe = document.createElement("iframe");
+    iframe.title = `${project.title} product demo`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${project.demoVideoId}?autoplay=1&controls=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.addEventListener("load", () => modal.classList.add("is-ready"), { once: true });
+    clip.append(iframe);
+    frame.append(loading, clip);
+    dialog.append(header, frame);
+    modal.append(dialog);
+
+    let closing = false;
+    const close = () => {
+      if (closing) return;
+      closing = true;
+      iframe.remove();
+      modal.classList.remove("is-open");
+      modal.classList.add("is-closing");
+      if (activeVideoModalClose === close) activeVideoModalClose = null;
+      window.setTimeout(() => modal.remove(), 320);
+      returnFocus?.focus({ preventScroll: true });
+    };
+    activeVideoModalClose = close;
+    closeButton.addEventListener("click", close);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) close();
+    });
+    document.body.append(modal);
+    requestAnimationFrame(() => {
+      modal.classList.add("is-open");
+      closeButton.focus({ preventScroll: true });
+    });
+  }
+
   overlay?.addEventListener("click", closePanel);
   $("#panelClose")?.addEventListener("click", closePanel);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closePanel();
+    if (e.key === "Escape") {
+      if (activeVideoModalClose) activeVideoModalClose();
+      else closePanel();
+      return;
+    }
     if (!activeProject) return;
     if (e.key === "ArrowRight") goGallery(1);
     if (e.key === "ArrowLeft") goGallery(-1);
@@ -282,6 +400,10 @@
     $("#panelTitle").textContent = p.title;
     $("#panelSubtitle").textContent = p.subtitle + " · " + p.badge;
     $("#panelOverview").textContent = p.overview;
+    const videoSlot = $("#panelVideoShowcase");
+    videoSlot.replaceChildren();
+    videoSlot.hidden = !p.demoVideoId;
+    if (p.demoVideoId) videoSlot.append(createVideoShowcase(p));
     $("#panelLive").href = p.live;
     $("#panelGithub").href = p.github;
 
