@@ -1,3 +1,0 @@
-﻿User-agent: *
-Allow: /
-Sitemap: https://portfolio-seven-wheat-91.vercel.app/sitemap.xml

@@ -1,4 +1,10 @@
 node_modules/
+.next/
+out/
 dist/
 /agent/
 /certificates/*.png
+.env*
+!.env.example
+*.tsbuildinfo
+coverage/
