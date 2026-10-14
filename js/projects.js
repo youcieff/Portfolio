@@ -2,6 +2,8 @@ const PROJECTS = [
   {
     id: "celia-games",
     num: "01",
+    aspect: "610 / 1356",
+    tags: ["games", "full-stack"],
     title: "Celia Games",
     demoVideoId: "39vIVc98_gQ",
     subtitle: "Arabic-first multiplayer game collection",
@@ -29,7 +31,9 @@ const PROJECTS = [
   },
   {
     id: "eduvision",
-    num: "01",
+    num: "02",
+    aspect: "2.08 / 1",
+    tags: ["ai", "full-stack"],
     title: "EduVisionAI",
     demoVideoId: "pktlQBT3Zuk",
     subtitle: "AI-Powered Adaptive Learning Platform",
@@ -74,7 +78,9 @@ const PROJECTS = [
   },
   {
     id: "bookthebest",
-    num: "02",
+    num: "03",
+    aspect: "2 / 1",
+    tags: ["full-stack"],
     title: "BookTheBest",
     subtitle: "Luxury Hotel Booking System",
     badge: "Full-Stack · 2025",
@@ -108,7 +114,9 @@ const PROJECTS = [
   },
   {
     id: "velora",
-    num: "03",
+    num: "04",
+    aspect: "2 / 1",
+    tags: ["full-stack", "e-commerce"],
     title: "Velora",
     subtitle: "Luxury E-Commerce Platform",
     badge: "Monorepo · Full-Stack",
@@ -142,7 +150,9 @@ const PROJECTS = [
   },
   {
     id: "talabat",
-    num: "04",
+    num: "05",
+    aspect: "2 / 1",
+    tags: ["full-stack", "e-commerce"],
     title: "Talabat Junior",
     subtitle: "Neon-Cyberpunk Food Delivery",
     badge: "Full-Stack · Bilingual",
@@ -175,7 +185,9 @@ const PROJECTS = [
   },
   {
     id: "flowboard",
-    num: "05",
+    num: "06",
+    aspect: "2 / 1",
+    tags: ["frontend"],
     title: "FlowBoard",
     subtitle: "Project Management SaaS",
     badge: "Frontend-First · UI Engineering",
