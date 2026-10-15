@@ -430,12 +430,25 @@ img {
   letter-spacing: -0.025em;
 }
 .nav-brand-mark {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
-  border-radius: 11px;
+  border-radius: 0;
   object-fit: cover;
   filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 35%, transparent));
+}
+.theme-logo-light {
+  display: none;
+}
+.theme-logo-dark {
+  display: block;
+  mix-blend-mode: screen;
+}
+.light .theme-logo-light {
+  display: block;
+}
+.light .theme-logo-dark {
+  display: none;
 }
 .nav-brand-label strong {
   color: var(--accent);
@@ -2910,16 +2923,17 @@ img {
 .intro-logo-mark {
   width: clamp(8rem, 17vw, 10.5rem);
   height: auto;
-  border-radius: 22%;
-  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 25%, transparent));
-  animation: loader-fade 0.6s 0.08s both;
+  border-radius: 0;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 24%, transparent));
+  clip-path: inset(0 100% 0 0);
+  animation: loader-signature 0.98s 0.1s var(--ease-out) both;
 }
 .intro-rule {
   width: 0;
   height: 1px;
   margin-top: 0.8rem;
   background: var(--accent);
-  animation: loader-line 0.42s 0.32s var(--ease-out) forwards;
+  animation: loader-line 0.46s 0.7s var(--ease-out) forwards;
 }
 .intro-name {
   margin-top: 1.15rem;
@@ -2930,7 +2944,7 @@ img {
   letter-spacing: -0.06em;
   white-space: nowrap;
   text-shadow: 0 0 26px color-mix(in srgb, var(--accent) 18%, transparent);
-  animation: loader-fade 0.55s 0.55s both;
+  animation: loader-fade 0.55s 1.05s both;
 }
 .intro-caption {
   margin-top: 0.62rem;
@@ -2942,7 +2956,7 @@ img {
   font: 700 0.98rem/1.5 var(--font-outfit);
   letter-spacing: 0.13em;
   white-space: nowrap;
-  animation: loader-fade 0.55s 0.75s both;
+  animation: loader-fade 0.55s 1.24s both;
 }
 .intro-caption::before,
 .intro-caption::after {
@@ -2954,6 +2968,16 @@ img {
 @keyframes loader-line {
   to {
     width: 100%;
+  }
+}
+@keyframes loader-signature {
+  from {
+    clip-path: inset(0 100% 0 0);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    filter: drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 38%, transparent));
   }
 }
 @keyframes loader-fade {

@@ -79,11 +79,18 @@ export function Navigation() {
         <div className="nav-wrap">
           <a className="nav-brand" href="#hero" aria-label={`${site.name}, home`}>
             <Image
-              src="/images/ym-logo.webp"
+              src="/images/ym-logo-light.webp"
               alt=""
-              width={828}
-              height={828}
-              className="nav-brand-mark"
+              width={720}
+              height={720}
+              className="nav-brand-mark theme-logo-light"
+            />
+            <Image
+              src="/images/ym-logo-dark.webp"
+              alt=""
+              width={720}
+              height={720}
+              className="nav-brand-mark theme-logo-dark"
             />
             <span className="nav-brand-label">Youssef <strong>Maged</strong></span>
           </a>

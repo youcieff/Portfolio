@@ -31,12 +31,19 @@ export function IntroLoader() {
         >
           <div className="intro-lockup" aria-hidden="true">
             <Image
-              src="/images/ym-logo.webp"
+              src="/images/ym-logo-light.webp"
               alt=""
-              width={828}
-              height={828}
+              width={720}
+              height={720}
               preload
-              className="intro-logo-mark"
+              className="intro-logo-mark theme-logo-light"
+            />
+            <Image
+              src="/images/ym-logo-dark.webp"
+              alt=""
+              width={720}
+              height={720}
+              className="intro-logo-mark theme-logo-dark"
             />
             <span className="intro-rule" />
             <span className="intro-name">Youssef Maged Hanna</span>
