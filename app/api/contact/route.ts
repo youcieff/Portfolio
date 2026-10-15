@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { site } from "@/data/site";
 
 export const runtime = "nodejs";
 
@@ -66,12 +67,7 @@ export async function POST(request: Request) {
       { status: 429 },
     );
 
-  const recipient = process.env.FORMSUBMIT_EMAIL;
-  if (!recipient)
-    return NextResponse.json(
-      { message: "The contact form is temporarily unavailable. Please email me directly." },
-      { status: 503 },
-    );
+  const recipient = process.env.FORMSUBMIT_EMAIL?.trim() || site.email;
 
   try {
     const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {

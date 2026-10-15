@@ -10,7 +10,7 @@ Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`. The form forwards submissions through the server route to FormSubmit; configure `FORMSUBMIT_EMAIL` in `.env.local` or the hosting provider's environment settings. The first FormSubmit activation email must be confirmed before messages arrive.
+Open `http://localhost:3000`. The form forwards submissions through the server route to FormSubmit. `FORMSUBMIT_EMAIL` in `.env.local` or the hosting provider's environment settings can override the recipient; when it is unset, the address in `data/site.ts` is used. The first FormSubmit activation email must be confirmed before messages arrive.
 
 The contact endpoint validates every field, checks a honeypot, and applies a small in-memory per-IP rate limit. On a serverless deployment, that limit is per running instance and is a basic abuse deterrent, not shared global storage.
 
@@ -23,7 +23,7 @@ npm run build
 npm run start
 ```
 
-Deploy to Vercel using the repository root as the project root. Add `FORMSUBMIT_EMAIL` in **Project Settings → Environment Variables**, then redeploy. No custom build command is required. Set `metadataBase` in `data/site.ts` to the production domain if it changes.
+Deploy to Vercel using the repository root as the project root. Set `FORMSUBMIT_EMAIL` in **Project Settings → Environment Variables** only if the recipient should differ from the address in `data/site.ts`; redeploy after changing it. No custom build command is required. Set `metadataBase` in `data/site.ts` to the production domain if it changes.
 
 ## Project images and certificate
 
