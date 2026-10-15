@@ -2897,13 +2897,14 @@ img {
   animation: loader-line 0.42s 0.32s var(--ease-out) forwards;
 }
 .intro-name {
-  margin-top: 1.05rem;
+  margin-top: 1.15rem;
   color: var(--ink);
   font:
-    700 clamp(1.75rem, 4vw, 2.35rem)/1.05 var(--font-outfit),
+    800 clamp(2.1rem, 4.6vw, 2.9rem)/1.02 var(--font-outfit),
     sans-serif;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.06em;
   white-space: nowrap;
+  text-shadow: 0 0 26px color-mix(in srgb, var(--accent) 18%, transparent);
   animation: loader-fade 0.55s 0.55s both;
 }
 .intro-caption {
@@ -2912,9 +2913,9 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
-  color: var(--muted);
-  font: 600 0.86rem/1.5 var(--font-mono);
-  letter-spacing: 0.17em;
+  color: var(--accent);
+  font: 700 0.98rem/1.5 var(--font-outfit);
+  letter-spacing: 0.13em;
   white-space: nowrap;
   animation: loader-fade 0.55s 0.75s both;
 }
@@ -3326,11 +3327,11 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
 }
 @media (max-width: 480px) {
   .intro-name {
-    font-size: clamp(1.55rem, 8vw, 2rem);
+    font-size: clamp(1.65rem, 7.4vw, 2.4rem);
   }
   .intro-caption {
-    font-size: 0.74rem;
-    letter-spacing: 0.12em;
+    font-size: 0.84rem;
+    letter-spacing: 0.11em;
   }
   .hero-kicker {
     column-gap: 0.55rem;
