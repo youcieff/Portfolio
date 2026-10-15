@@ -430,11 +430,13 @@ img {
 }
 .nav-brand span {
   display: inline-block;
-  margin-left: 0.075em;
-  color: var(--accent-secondary);
-  font-size: 0.58em;
+  width: 0.16em;
+  height: 0.16em;
+  margin-left: 0.025em;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--accent), var(--accent-secondary));
   letter-spacing: 0;
-  transform: translateY(-0.08em);
+  transform: translateY(-0.2em);
 }
 .nav-links {
   position: relative;
@@ -2891,11 +2893,13 @@ img {
 }
 .intro-monogram b {
   display: inline-block;
-  margin-left: 0.14em;
-  color: var(--accent);
-  font-size: 0.32em;
+  width: 0.15em;
+  height: 0.15em;
+  margin-left: 0.035em;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--accent), var(--accent-secondary));
   letter-spacing: 0;
-  transform: translateY(-0.08em);
+  transform: translateY(-0.22em);
 }
 .intro-rule {
   width: 0;

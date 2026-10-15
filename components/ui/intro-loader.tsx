@@ -32,7 +32,7 @@ export function IntroLoader() {
             <span className="intro-monogram">
               <i>Y</i>
               <i>M</i>
-              <b>.</b>
+              <b aria-hidden="true" />
             </span>
             <span className="intro-rule" />
             <span className="intro-name">Youssef Maged Hanna</span>

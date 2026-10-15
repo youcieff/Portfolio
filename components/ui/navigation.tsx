@@ -77,7 +77,7 @@ export function Navigation() {
       <header className="site-header shell" data-scrolled={scrolled}>
         <div className="nav-wrap">
           <a className="nav-brand" href="#hero" aria-label={`${site.name}, home`}>
-            YM<span>.</span>
+            YM<span aria-hidden="true" />
           </a>
           <nav className="nav-links" aria-label="Main navigation">
             {navigation.map(({ label, href }) => (
