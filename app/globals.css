@@ -3013,6 +3013,13 @@ html.has-custom-cursor,
 html.has-custom-cursor * {
   cursor: none !important;
 }
+html.intro-pending.has-custom-cursor,
+html.intro-pending.has-custom-cursor * {
+  cursor: auto !important;
+}
+html.intro-pending .custom-cursor {
+  display: none;
+}
 body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
   display: none;
 }
