@@ -6,7 +6,7 @@ import { site } from "@/data/site";
 export function About() {
   return (
     <section className="section shell" id="about" aria-labelledby="about-title">
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <span className="eyebrow">About</span>
         <div>
           <h2 className="section-title" id="about-title">
@@ -15,7 +15,7 @@ export function About() {
             built with people in mind.
           </h2>
         </div>
-      </div>
+      </Reveal>
       <div className="about-grid">
         <Reveal className="about-photo-frame">
           <Image
@@ -34,9 +34,10 @@ export function About() {
             height={1024}
             alt="Portrait of Youssef Maged Hanna"
             sizes="(max-width: 760px) 90vw, 35vw"
+            loading="eager"
           />
         </Reveal>
-        <Reveal className="about-copy" delay={0.08}>
+        <Reveal className="about-copy" delay={0.12}>
           <p>{site.about}</p>
           <p>{site.aboutBeforeSoftware}</p>
           <div className="about-note">

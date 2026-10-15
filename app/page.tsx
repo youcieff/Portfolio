@@ -4,6 +4,7 @@ import { Education } from "@/components/education/education";
 import { Hero } from "@/components/hero/hero";
 import { ProjectExplorer } from "@/components/projects/project-explorer";
 import { Resume } from "@/components/resume/resume";
+import { Services } from "@/components/services/services";
 import { Skills } from "@/components/skills/skills";
 import { SiteFooter } from "@/components/ui/site-footer";
 import { site } from "@/data/site";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Hero />
       <About />
       <ProjectExplorer />
+      <Services />
       <Skills />
       <Resume />
       <Education />

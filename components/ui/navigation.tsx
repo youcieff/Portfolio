@@ -4,11 +4,12 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { navigation, site } from "@/data/site";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ThemeToggle } from "@/components/ui/theme-control";
 
 export function Navigation() {
   const [active, setActive] = useState("about");
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const mobileSheet = useRef<HTMLDivElement>(null);
 
@@ -22,6 +23,20 @@ export function Navigation() {
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => setScrolled(window.scrollY > 24));
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", update);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,7 +74,7 @@ export function Navigation() {
 
   return (
     <>
-      <header className="site-header shell">
+      <header className="site-header shell" data-scrolled={scrolled}>
         <div className="nav-wrap">
           <a className="nav-brand" href="#hero" aria-label={`${site.name}, home`}>
             YM<span>.</span>

@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import { AppProviders } from "@/components/providers/app-providers";
 import { IntroLoader } from "@/components/ui/intro-loader";
 import { Navigation } from "@/components/ui/navigation";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 import { ReadingProgress } from "@/components/ui/reading-progress";
 import { site } from "@/data/site";
 
@@ -65,8 +66,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   colorScheme: "dark light",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f5f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#0e0e10" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f4fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#090c19" },
   ],
 };
 
@@ -102,6 +103,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <AppProviders>
           <ReadingProgress />
           <Navigation />
+          <CustomCursor />
           <IntroLoader />
           {children}
         </AppProviders>

@@ -7,19 +7,7 @@ export function IntroLoader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    let delay = 2180;
-    try {
-      if (
-        sessionStorage.getItem("portfolio-intro-seen") ||
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
-        delay = 0;
-      } else {
-        sessionStorage.setItem("portfolio-intro-seen", "1");
-      }
-    } catch {
-      delay = 0;
-    }
+    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 2300;
 
     const timeout = window.setTimeout(() => setVisible(false), delay);
     return () => window.clearTimeout(timeout);
@@ -42,6 +30,7 @@ export function IntroLoader() {
               <b>.</b>
             </span>
             <span className="intro-rule" />
+            <span className="intro-name">Youssef Maged Hanna</span>
             <span className="intro-caption">FULL STACK DEVELOPER</span>
           </div>
         </motion.div>

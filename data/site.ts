@@ -13,8 +13,8 @@ export const site = {
   website: "https://portfolio-seven-wheat-91.vercel.app",
   emailHref: "mailto:youssefmaged051@gmail.com",
   github: "https://github.com/youcieff",
-  linkedin: "https://www.linkedin.com/in/youssef-maged-664ab4396",
-  linkedinLabel: "youssef-maged-664ab4396",
+  linkedin: "https://www.linkedin.com/in/youssefmagedhanna",
+  linkedinLabel: "linkedin.com/in/youssefmagedhanna",
   summary:
     "I build web products that solve real problems — from AI-powered learning tools to multiplayer games. I care about clear interfaces, thoughtful details, and the moment an idea becomes something people can use.",
   about:
@@ -28,6 +28,7 @@ export const site = {
 export const navigation = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Skills", href: "#skills" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },

@@ -11,7 +11,7 @@ export function ThemeToggle() {
     const nextTheme = isLight ? "dark" : "light";
     setTheme(nextTheme);
     document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
-      meta.setAttribute("content", nextTheme === "light" ? "#f6f5f1" : "#0e0e10");
+      meta.setAttribute("content", nextTheme === "light" ? "#f5f4fb" : "#090c19");
     });
   }
 
@@ -19,7 +19,8 @@ export function ThemeToggle() {
     <button
       className="theme-toggle"
       type="button"
-      aria-label={`Switch to ${isLight ? "dark" : "light"} theme`}
+      aria-label="Toggle color theme"
+      title="Switch color theme"
       onClick={toggleTheme}
     >
       <Sun aria-hidden="true" className="sun-icon" size={18} strokeWidth={1.8} />

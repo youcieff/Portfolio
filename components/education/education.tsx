@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { Reveal } from "@/components/ui/reveal";
 import { education } from "@/data/education";
 import { certification } from "@/data/certifications";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 
 export function Education() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -21,7 +22,7 @@ export function Education() {
   }, []);
   return (
     <section className="section shell" id="education" aria-labelledby="education-title">
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <span className="eyebrow">Education</span>
         <div>
           <h2 className="section-title" id="education-title">
@@ -29,7 +30,7 @@ export function Education() {
           </h2>
           <p className="section-intro">Formal study and a practical full stack foundation.</p>
         </div>
-      </div>
+      </Reveal>
       <div className="education-grid">
         <Reveal className="education-card">
           <GraduationCap size={22} className="education-icon" aria-hidden="true" />
@@ -42,7 +43,7 @@ export function Education() {
             <p>{education.graduationProject}</p>
           </div>
         </Reveal>
-        <Reveal className="certificate-card" delay={0.08}>
+        <Reveal className="certificate-card" delay={0.14}>
           <button
             className="certificate-open"
             type="button"
@@ -56,6 +57,12 @@ export function Education() {
               alt="Kimmit Academy Full Stack Web Development certificate preview"
               sizes="(max-width: 760px) 90vw, 40vw"
             />
+            <span className="certificate-preview-label" aria-hidden="true">
+              <span>Kimmit Academy</span>
+              <span>
+                View credential <span>↗</span>
+              </span>
+            </span>
           </button>
           <span className="eyebrow">Certification · {certification.date}</span>
           <h3>{certification.title}</h3>
@@ -81,6 +88,7 @@ export function Education() {
           close();
         }}
       >
+        <CustomCursor inDialog />
         <button
           className="dialog-close"
           type="button"

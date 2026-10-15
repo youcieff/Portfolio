@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useIsPresent } from "motion/react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Play, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Play, RotateCw, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { projects } from "@/data/projects";
 import type { Project } from "@/data/types";
+import { CustomCursor } from "@/components/ui/custom-cursor";
+import { Reveal } from "@/components/ui/reveal";
 
 const filters = [
   { label: "All", value: "all" },
@@ -19,21 +21,15 @@ const filters = [
 function BrowserFrame({ project, priority = false }: { project: Project; priority?: boolean }) {
   const image = project.images[0];
   return (
-    <div className="project-media">
+    <div className={`project-media ${project.frame}`}>
       <div className={`project-media-inner ${project.frame}`}>
-        {project.frame === "browser" && (
-          <div className="browser-bar" aria-hidden="true">
-            <i className="browser-dot" />
-            <i className="browser-dot" />
-            <i className="browser-dot" />
-            <i className="browser-address" />
-          </div>
-        )}
+        {project.frame === "browser" && <BrowserChrome />}
         <Image
           src={image.src}
           width={image.width}
           height={image.height}
           alt={image.alt}
+          unoptimized
           sizes={
             project.frame === "phone"
               ? "(max-width: 760px) 45vw, 20vw"
@@ -42,6 +38,18 @@ function BrowserFrame({ project, priority = false }: { project: Project; priorit
           priority={priority}
         />
       </div>
+    </div>
+  );
+}
+
+function BrowserChrome() {
+  return (
+    <div className="browser-bar" aria-hidden="true">
+      <i className="browser-dot" />
+      <i className="browser-dot" />
+      <i className="browser-dot" />
+      <i className="browser-address" />
+      <span>PROJECT PREVIEW</span>
     </div>
   );
 }
@@ -87,20 +95,41 @@ function VideoModal({
   onClose: () => void;
 }) {
   const [loaded, setLoaded] = useState(false);
-  const [playing, setPlaying] = useState(true);
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   const isPresent = useIsPresent();
+  const overlayRef = useRef<HTMLDialogElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const close = () => {
-    setPlaying(false);
-    onClose();
+  const close = () => onClose();
+  useEffect(() => {
+    const dialog = overlayRef.current;
+    if (dialog && !dialog.open) dialog.showModal();
+    return () => {
+      if (dialog?.open) dialog.close();
+    };
+  }, []);
+  useEffect(() => {
+    if (loaded || failed || !isPresent) return;
+    const timeout = window.setTimeout(() => setFailed(true), 15000);
+    return () => window.clearTimeout(timeout);
+  }, [failed, isPresent, loaded, attempt]);
+  const retry = () => {
+    setFailed(false);
+    setLoaded(false);
+    setAttempt((current) => current + 1);
   };
   useEffect(() => closeRef.current?.focus(), []);
   return (
-    <motion.div
+    <motion.dialog
+      ref={overlayRef}
       className="video-overlay"
-      role="presentation"
+      aria-label={`${title} demo video`}
       onMouseDown={(event) => event.target === event.currentTarget && close()}
+      onCancel={(event) => {
+        event.preventDefault();
+        close();
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -108,9 +137,6 @@ function VideoModal({
       <motion.div
         ref={modalRef}
         className="video-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-label={`${title} demo video`}
         onKeyDown={(event) => {
           if (event.key === "Escape") {
             event.preventDefault();
@@ -136,6 +162,10 @@ function VideoModal({
         exit={{ opacity: 0, scale: 0.97, y: 8 }}
         transition={{ duration: 0.22 }}
       >
+        <div className="video-modal-header">
+          <span>Project showcase</span>
+          <strong>{title}</strong>
+        </div>
         <button
           className="video-close"
           type="button"
@@ -143,27 +173,39 @@ function VideoModal({
           ref={closeRef}
           onClick={close}
         >
-          <X size={20} />
+          <X size={19} />
         </button>
         <div className="video-frame">
-          {!loaded && (
-            <div className="video-loading" aria-label="Loading video">
+          {!loaded && !failed && (
+            <div className="video-loading" role="status" aria-label="Loading video">
               <span className="video-spinner" />
+              <span>Preparing your video</span>
             </div>
           )}
-          {playing && isPresent && (
+          {failed && (
+            <div className="video-error" role="alert">
+              <span>Video couldn’t be loaded.</span>
+              <button className="video-retry" type="button" onClick={retry}>
+                <RotateCw size={15} /> Try again
+              </button>
+            </div>
+          )}
+          {isPresent && !failed && (
             <iframe
+              key={attempt}
               title={`${title} project demo`}
-              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&playsinline=1`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&fs=1`}
+              loading="eager"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+              referrerPolicy="origin"
               allowFullScreen
               onLoad={() => setLoaded(true)}
+              onError={() => setFailed(true)}
             />
           )}
         </div>
       </motion.div>
-    </motion.div>
+    </motion.dialog>
   );
 }
 
@@ -217,6 +259,7 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
         }}
         onClick={(event) => event.target === event.currentTarget && onClose()}
       >
+        {project && <CustomCursor inDialog />}
         {project && (
           <>
             <button
@@ -228,7 +271,12 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
               <X size={20} />
             </button>
             <div className="dialog-layout">
-              <div className="dialog-gallery">
+              <motion.div
+                className="dialog-gallery"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.42, delay: 0.05 }}
+              >
                 <div
                   className={`gallery-stage ${project.frame}`}
                   onTouchStart={(event) => {
@@ -242,6 +290,7 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
                     touchStart.current = null;
                   }}
                 >
+                  {project.frame === "browser" && <BrowserChrome />}
                   <Image
                     key={project.images[activeImage].src}
                     src={project.images[activeImage].src}
@@ -295,12 +344,19 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
                     </button>
                   ))}
                 </div>
-              </div>
-              <article className="dialog-copy">
-                <span className="eyebrow">{project.badge}</span>
-                <h2 id="project-dialog-title">{project.title}</h2>
-                <p>{project.subtitle}</p>
-                <p>{project.overview}</p>
+              </motion.div>
+              <motion.article
+                className="dialog-copy"
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.42, delay: 0.1 }}
+              >
+                <header className="dialog-project-head">
+                  <span className="eyebrow">{project.badge}</span>
+                  <h2 id="project-dialog-title">{project.title}</h2>
+                  <p className="dialog-subtitle">{project.subtitle}</p>
+                  <p className="dialog-overview">{project.overview}</p>
+                </header>
                 {project.demoVideoId && (
                   <VideoShowcase
                     videoId={project.demoVideoId}
@@ -349,7 +405,7 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
                     Source code <ArrowUpRight size={15} />
                   </a>
                 </div>
-              </article>
+              </motion.article>
             </div>
           </>
         )}
@@ -391,7 +447,7 @@ export function ProjectExplorer() {
 
   return (
     <section className="section shell" id="projects" aria-labelledby="projects-title">
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <span className="eyebrow">Selected work · 2025–26</span>
         <div>
           <h2 className="section-title" id="projects-title">
@@ -402,48 +458,54 @@ export function ProjectExplorer() {
             use.
           </p>
         </div>
-      </div>
-      <div className="project-toolbar">
-        <div className="filter-list" role="group" aria-label="Filter projects">
-          {filters.map(({ label, value }) => (
-            <button
-              key={value}
-              className="filter-chip"
-              type="button"
-              aria-pressed={filter === value}
-              onClick={() => setFilter(value)}
-            >
-              {label}
-            </button>
-          ))}
+      </Reveal>
+      <Reveal className="project-controls-reveal">
+        <div className="project-toolbar">
+          <div className="filter-list" role="group" aria-label="Filter projects">
+            {filters.map(({ label, value }) => (
+              <button
+                key={value}
+                className="filter-chip"
+                type="button"
+                aria-pressed={filter === value}
+                onClick={() => setFilter(value)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <label>
+            <span className="sr-only">Search projects</span>
+            <input
+              className="project-search"
+              type="search"
+              placeholder="Search work…"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </label>
         </div>
-        <label>
-          <span className="sr-only">Search projects</span>
-          <input
-            className="project-search"
-            type="search"
-            placeholder="Search work…"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-          />
-        </label>
-      </div>
-      <p className="project-result-count" aria-live="polite">
-        Showing {visible.length} of {projects.length} projects
-      </p>
+        <p className="project-result-count" aria-live="polite">
+          Showing {visible.length} of {projects.length} projects
+        </p>
+      </Reveal>
       <motion.div className="project-grid" layout>
         <AnimatePresence mode="popLayout">
           {visible.map((project, index) => (
             <motion.article
               className={`project-card${index === 0 && filter === "all" && !query ? " project-card-featured" : ""}`}
+              data-in-view="false"
               key={project.slug}
               layout
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16, scale: 0.985 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-8% 0px" }}
+              onViewportEnter={(entry) => entry?.target.setAttribute("data-in-view", "true")}
+              onViewportLeave={(entry) => entry?.target.setAttribute("data-in-view", "false")}
+              exit={{ opacity: 0, y: 12, scale: 0.99 }}
               transition={{
-                duration: 0.32,
-                delay: Math.min(index * 0.065, 0.325),
+                duration: 0.5,
+                delay: Math.min(index * 0.09, 0.45),
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
@@ -459,19 +521,24 @@ export function ProjectExplorer() {
                     <span>{project.badge}</span>
                     <span>{String(projects.indexOf(project) + 1).padStart(2, "0")}</span>
                   </div>
-                  <h3>{project.title}</h3>
-                  <p className="project-subtitle">{project.subtitle}</p>
+                  <div className="project-heading">
+                    <h3>{project.title}</h3>
+                    <p className="project-subtitle">{project.subtitle}</p>
+                  </div>
                   <p className="project-description">{project.overview}</p>
                   <div className="project-footer">
-                    <div className="project-tags">
-                      {project.stack.slice(0, 4).map((tag) => (
-                        <span className="project-tag" key={tag}>
-                          {tag}
-                        </span>
-                      ))}
-                      {project.stack.length > 4 && (
-                        <span className="project-tag">+{project.stack.length - 4}</span>
-                      )}
+                    <div className="project-tech">
+                      <span className="project-tech-label">Built with</span>
+                      <div className="project-tags">
+                        {project.stack.slice(0, 2).map((tag) => (
+                          <span className="project-tag" key={tag}>
+                            {tag}
+                          </span>
+                        ))}
+                        {project.stack.length > 2 && (
+                          <span className="project-tag project-tag-count">+{project.stack.length - 2}</span>
+                        )}
+                      </div>
                     </div>
                     <span className="project-view">
                       View project <ArrowUpRight size={15} />

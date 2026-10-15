@@ -1,22 +1,29 @@
 "use client";
 
 import { motion, type HTMLMotionProps } from "motion/react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
-type RevealProps = Omit<HTMLMotionProps<"div">, "children"> & {
+type RevealProps = Omit<HTMLMotionProps<"div">, "children" | "onViewportEnter" | "onViewportLeave"> & {
   children: ReactNode;
   delay?: number;
   distance?: number;
 };
 
-export function Reveal({ children, className, delay = 0, distance = 20, ...props }: RevealProps) {
+export function Reveal({ children, className, delay = 0, distance = 16, ...props }: RevealProps) {
+  const [inView, setInView] = useState(false);
+
   return (
     <motion.div
       className={`motion-reveal${className ? ` ${className}` : ""}`}
-      initial={{ opacity: 0, y: distance }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.72, delay, ease: [0.22, 1, 0.36, 1] }}
+      data-in-view={inView ? "true" : "false"}
+      initial={{ opacity: 0, y: distance, scale: 0.985 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: false, margin: "-6% 0px" }}
+      transition={{ duration: 0.62, delay, ease: [0.22, 1, 0.36, 1] }}
+      onViewportEnter={() => {
+        setInView(true);
+      }}
+      onViewportLeave={() => setInView(false)}
       {...props}
     >
       {children}

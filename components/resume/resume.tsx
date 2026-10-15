@@ -7,7 +7,7 @@ import { PrintButton } from "@/components/resume/print-button";
 export function Resume() {
   return (
     <section className="section shell" id="resume" aria-labelledby="resume-title">
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <span className="eyebrow">Experience</span>
         <div>
           <h2 className="section-title" id="resume-title">
@@ -17,7 +17,7 @@ export function Resume() {
             A concise overview of the work, skills, and experience behind these projects.
           </p>
         </div>
-      </div>
+      </Reveal>
       <Reveal className="resume-card">
         <div className="resume-top">
           <div>

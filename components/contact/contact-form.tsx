@@ -54,6 +54,9 @@ export function ContactForm() {
     ) : null;
   return (
     <form className="contact-form" onSubmit={submit} noValidate>
+      <div className="form-heading">
+        <span className="eyebrow">Send a message</span>
+      </div>
       <div className="form-grid">
         <div className="form-field">
           <label htmlFor="contact-name">Your name *</label>

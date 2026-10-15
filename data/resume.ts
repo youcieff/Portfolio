@@ -70,7 +70,7 @@ export const resume = {
   certification,
   printEducation: {
     degree: "B.Sc. Computer Science & AI — Software Engineering",
-    period: "Sep 2022 – Jun 2026",
+    period: "Sep 2022 – May 2026",
     school: "Capital University · Faculty of Computer Science & AI · Cairo, Egypt",
     project: "EduVisionAI — AI-powered adaptive learning platform",
   },
