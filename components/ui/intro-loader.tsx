@@ -14,7 +14,12 @@ export function IntroLoader() {
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence
+      onExitComplete={() => {
+        document.documentElement.classList.remove("intro-pending");
+        document.documentElement.classList.add("intro-complete");
+      }}
+    >
       {visible && (
         <motion.div
           className="intro-loader"

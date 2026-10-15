@@ -531,32 +531,18 @@ img {
   max-width: 790px;
 }
 .hero-entry > * {
+  opacity: 0;
+}
+.intro-complete .hero-entry > * {
   animation: hero-enter 0.72s var(--ease-out) both;
 }
-.hero-copy > :nth-child(1) {
-  animation-delay: 2.6s;
-}
-.hero-copy > :nth-child(2) {
-  animation-delay: 2.76s;
-}
-.hero-copy > .hero-title {
-  animation-name: hero-fade;
-}
-.hero-copy > :nth-child(3) {
-  animation-delay: 2.92s;
-}
-.hero-copy > :nth-child(4) {
-  animation-delay: 3.08s;
-}
-.hero-copy > :nth-child(5) {
-  animation-delay: 3.24s;
-}
-.hero-entry-aside > * {
-  animation-delay: 3.05s;
-}
-.hero-role-line {
-  animation: hero-enter 0.72s 3.08s var(--ease-out) both;
-}
+.intro-complete .hero-copy > :nth-child(1) { animation-delay: 0.04s; }
+.intro-complete .hero-copy > :nth-child(2) { animation-delay: 0.16s; }
+.intro-complete .hero-copy > .hero-title { animation-name: hero-fade; }
+.intro-complete .hero-copy > :nth-child(3) { animation-delay: 0.3s; }
+.intro-complete .hero-copy > :nth-child(4) { animation-delay: 0.44s; }
+.intro-complete .hero-copy > :nth-child(5) { animation-delay: 0.58s; }
+.intro-complete .hero-entry-aside > * { animation-delay: 0.34s; }
 @keyframes hero-enter {
   from {
     opacity: 0;
@@ -3016,6 +3002,33 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
 .dialog-cursor {
   z-index: 9999;
 }
+.intro-complete #main > :not(.hero) {
+  animation: intro-section-reveal 0.68s var(--ease-out) both;
+}
+.intro-complete #main > :nth-child(2) { animation-delay: 0.08s; }
+.intro-complete #main > :nth-child(3) { animation-delay: 0.21s; }
+.intro-complete #main > :nth-child(4) { animation-delay: 0.34s; }
+.intro-complete #main > :nth-child(5) { animation-delay: 0.47s; }
+.intro-complete #main > :nth-child(6) { animation-delay: 0.6s; }
+.intro-complete #main > :nth-child(7) { animation-delay: 0.73s; }
+.intro-complete #main > :nth-child(8) { animation-delay: 0.86s; }
+.intro-complete #main > :nth-child(9) { animation-delay: 0.99s; }
+@keyframes intro-section-reveal {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+.no-js .hero-entry > * {
+  opacity: 1 !important;
+  animation: none !important;
+}
 .no-js .motion-reveal {
   opacity: 1 !important;
   transform: none !important;
@@ -3374,6 +3387,10 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
     transition-duration: 0.01ms !important;
   }
   .intro-complete .site-header {
+    animation-delay: 0s !important;
+  }
+  .intro-complete #main > :not(.hero),
+  .intro-complete .hero-entry > * {
     animation-delay: 0s !important;
   }
 }

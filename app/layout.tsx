@@ -86,7 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`no-js ${outfit.variable} ${dmSans.variable}`}
+      className={`no-js intro-pending ${outfit.variable} ${dmSans.variable}`}
       suppressHydrationWarning
     >
       <head>
