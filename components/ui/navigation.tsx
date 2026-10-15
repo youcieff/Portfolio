@@ -5,6 +5,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { navigation, site } from "@/data/site";
 import { ThemeToggle } from "@/components/ui/theme-control";
+import { BrandMark } from "@/components/ui/brand-mark";
 
 export function Navigation() {
   const [active, setActive] = useState("about");
@@ -77,7 +78,8 @@ export function Navigation() {
       <header className="site-header shell" data-scrolled={scrolled}>
         <div className="nav-wrap">
           <a className="nav-brand" href="#hero" aria-label={`${site.name}, home`}>
-            YM<span aria-hidden="true" />
+            <BrandMark className="nav-brand-mark" size={36} />
+            <span className="nav-brand-label">Youssef <strong>Maged</strong></span>
           </a>
           <nav className="nav-links" aria-label="Main navigation">
             {navigation.map(({ label, href }) => (
