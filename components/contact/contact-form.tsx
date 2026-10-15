@@ -2,12 +2,17 @@
 
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, LoaderCircle } from "lucide-react";
+import { site } from "@/data/site";
 
 type FieldErrors = Partial<Record<"name" | "email" | "phone" | "subject" | "message", string>>;
 
 export function ContactForm() {
   const [pending, setPending] = useState(false);
-  const [status, setStatus] = useState<{ kind: "success" | "error"; text: string } | null>(null);
+  const [status, setStatus] = useState<{
+    kind: "success" | "error";
+    text: string;
+    fallbackHref?: string;
+  } | null>(null);
   const [errors, setErrors] = useState<FieldErrors>({});
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -16,6 +21,17 @@ export function ContactForm() {
     setErrors({});
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+    const value = (field: string) => String(data[field] ?? "").trim();
+    const mailSubject = value("subject") || `Portfolio message from ${value("name")}`;
+    const mailBody = [
+      `Name: ${value("name")}`,
+      `Email: ${value("email")}`,
+      `Phone: ${value("phone")}`,
+      "",
+      value("message"),
+    ].join("\n");
+    const fallbackHref = `mailto:${site.email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+    let offerFallback = true;
     setPending(true);
     try {
       const response = await fetch("/api/contact", {
@@ -25,7 +41,10 @@ export function ContactForm() {
       });
       const result = await response.json();
       if (!response.ok) {
-        if (response.status === 422 && result.fields) setErrors(result.fields as FieldErrors);
+        if (response.status === 422 && result.fields) {
+          setErrors(result.fields as FieldErrors);
+          offerFallback = false;
+        }
         throw new Error(result.message ?? "The message could not be sent. Please try again.");
       }
       form.reset();
@@ -40,6 +59,7 @@ export function ContactForm() {
           error instanceof Error
             ? error.message
             : "Something went wrong. Please try again or email me directly.",
+        fallbackHref: offerFallback ? fallbackHref : undefined,
       });
     } finally {
       setPending(false);
@@ -144,6 +164,11 @@ export function ContactForm() {
         {status && (
           <p className="form-status" data-kind={status.kind} role="status" aria-live="polite">
             {status.text}
+            {status.fallbackHref && (
+              <a className="form-email-fallback" href={status.fallbackHref}>
+                Open your email app with this message <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            )}
           </p>
         )}
       </div>

@@ -2847,6 +2847,26 @@ img {
 .light .form-status[data-kind="error"] {
   color: #9e3941;
 }
+.form-email-fallback {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 0.65rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.form-email-fallback:hover {
+  color: var(--accent-strong);
+}
+@media (max-width: 480px) {
+  .form-email-fallback {
+    display: flex;
+    width: fit-content;
+    margin: 0.45rem 0 0;
+  }
+}
 .honeypot {
   position: absolute;
   width: 1px;
