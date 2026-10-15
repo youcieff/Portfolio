@@ -429,7 +429,12 @@ img {
   letter-spacing: -0.06em;
 }
 .nav-brand span {
+  display: inline-block;
+  margin-left: 0.075em;
   color: var(--accent-secondary);
+  font-size: 0.58em;
+  letter-spacing: 0;
+  transform: translateY(-0.08em);
 }
 .nav-links {
   position: relative;
@@ -534,15 +539,15 @@ img {
   opacity: 0;
 }
 .intro-complete .hero-entry > * {
-  animation: hero-enter 0.72s var(--ease-out) both;
+  animation: hero-enter 0.82s var(--ease-out) both;
 }
-.intro-complete .hero-copy > :nth-child(1) { animation-delay: 0.04s; }
-.intro-complete .hero-copy > :nth-child(2) { animation-delay: 0.16s; }
+.intro-complete .hero-copy > :nth-child(1) { animation-delay: 0.08s; }
+.intro-complete .hero-copy > :nth-child(2) { animation-delay: 0.38s; }
 .intro-complete .hero-copy > .hero-title { animation-name: hero-fade; }
-.intro-complete .hero-copy > :nth-child(3) { animation-delay: 0.3s; }
-.intro-complete .hero-copy > :nth-child(4) { animation-delay: 0.44s; }
-.intro-complete .hero-copy > :nth-child(5) { animation-delay: 0.58s; }
-.intro-complete .hero-entry-aside > * { animation-delay: 0.34s; }
+.intro-complete .hero-copy > :nth-child(3) { animation-delay: 0.7s; }
+.intro-complete .hero-copy > :nth-child(4) { animation-delay: 0.98s; }
+.intro-complete .hero-copy > :nth-child(5) { animation-delay: 1.26s; }
+.intro-complete .hero-entry-aside > * { animation-delay: 0.76s; }
 @keyframes hero-enter {
   from {
     opacity: 0;
@@ -2873,18 +2878,24 @@ img {
   justify-items: center;
 }
 .intro-monogram {
-  overflow: hidden;
+  display: inline-flex;
+  align-items: baseline;
   font:
     700 clamp(4rem, 11vw, 7rem)/1 var(--font-outfit),
     sans-serif;
-  letter-spacing: -0.1em;
+  letter-spacing: -0.075em;
   animation: loader-fade 0.6s 0.08s both;
 }
 .intro-monogram i {
   font-style: normal;
 }
 .intro-monogram b {
+  display: inline-block;
+  margin-left: 0.14em;
   color: var(--accent);
+  font-size: 0.32em;
+  letter-spacing: 0;
+  transform: translateY(-0.08em);
 }
 .intro-rule {
   width: 0;
@@ -3003,16 +3014,16 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
   z-index: 9999;
 }
 .intro-complete #main > :not(.hero) {
-  animation: intro-section-reveal 0.68s var(--ease-out) both;
+  animation: intro-section-reveal 0.82s var(--ease-out) both;
 }
-.intro-complete #main > :nth-child(2) { animation-delay: 0.08s; }
-.intro-complete #main > :nth-child(3) { animation-delay: 0.21s; }
-.intro-complete #main > :nth-child(4) { animation-delay: 0.34s; }
-.intro-complete #main > :nth-child(5) { animation-delay: 0.47s; }
-.intro-complete #main > :nth-child(6) { animation-delay: 0.6s; }
-.intro-complete #main > :nth-child(7) { animation-delay: 0.73s; }
-.intro-complete #main > :nth-child(8) { animation-delay: 0.86s; }
-.intro-complete #main > :nth-child(9) { animation-delay: 0.99s; }
+.intro-complete #main > :nth-child(2) { animation-delay: 2.12s; }
+.intro-complete #main > :nth-child(3) { animation-delay: 2.62s; }
+.intro-complete #main > :nth-child(4) { animation-delay: 3.12s; }
+.intro-complete #main > :nth-child(5) { animation-delay: 3.62s; }
+.intro-complete #main > :nth-child(6) { animation-delay: 4.12s; }
+.intro-complete #main > :nth-child(7) { animation-delay: 4.62s; }
+.intro-complete #main > :nth-child(8) { animation-delay: 5.12s; }
+.intro-complete #main > :nth-child(9) { animation-delay: 5.62s; }
 @keyframes intro-section-reveal {
   from {
     opacity: 0;
