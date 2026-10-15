@@ -24,8 +24,7 @@ export function About() {
             width={900}
             height={1024}
             alt="Portrait of Youssef Maged Hanna"
-            sizes="(max-width: 760px) 90vw, 35vw"
-            priority
+            sizes="(max-width: 760px) 90vw, (max-width: 1180px) 60vw, 35vw"
           />
           <Image
             className="profile-light"
@@ -33,8 +32,7 @@ export function About() {
             width={900}
             height={1024}
             alt="Portrait of Youssef Maged Hanna"
-            sizes="(max-width: 760px) 90vw, 35vw"
-            loading="eager"
+            sizes="(max-width: 760px) 90vw, (max-width: 1180px) 60vw, 35vw"
           />
         </Reveal>
         <Reveal className="about-copy" delay={0.12}>

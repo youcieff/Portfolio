@@ -36,6 +36,18 @@ function rateLimited(ip: string) {
   return entry.count > maxAttempts;
 }
 
+function getFormPageUrl(referer: string | null) {
+  if (referer) {
+    try {
+      const url = new URL(referer);
+      if (url.protocol === "http:" || url.protocol === "https:") return url.href;
+    } catch {
+      // Use the canonical site URL when the request has no valid page referrer.
+    }
+  }
+  return `${site.website}/#contact`;
+}
+
 export async function POST(request: Request) {
   let body: unknown;
   try {
@@ -80,6 +92,7 @@ export async function POST(request: Request) {
         subject: data.subject,
         _replyto: data.email,
         _subject: data.subject || `Portfolio message from ${data.name}`,
+        _url: getFormPageUrl(request.headers.get("referer")),
         message: data.message,
         _honey: "",
       }),

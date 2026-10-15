@@ -3,7 +3,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 const source = path.resolve("certificates", "Youssef Maged Hanna.png");
-const outputDirectory = path.resolve("public", "certificates");
+const outputDirectory = path.resolve("public", "images", "certificates");
 const fullSize = path.join(outputDirectory, "kimmit-mern-certificate.webp");
 const thumbnail = path.join(outputDirectory, "kimmit-mern-certificate-800.webp");
 

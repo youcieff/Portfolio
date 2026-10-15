@@ -2,8 +2,8 @@ export const certification = {
   title: "Full Stack Web Development — MERN Stack",
   issuer: "Kimmit Academy",
   date: "May 2025",
-  image: "/certificates/kimmit-mern-certificate.webp",
-  thumbnail: "/certificates/kimmit-mern-certificate-800.webp",
+  image: "/images/certificates/kimmit-mern-certificate.webp",
+  thumbnail: "/images/certificates/kimmit-mern-certificate-800.webp",
   width: 1600,
   height: 1131,
   topics: [

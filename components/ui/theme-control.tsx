@@ -2,13 +2,19 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const isLight = resolvedTheme === "light";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const isLight = mounted && resolvedTheme === "light";
 
   function toggleTheme() {
-    const nextTheme = isLight ? "dark" : "light";
+    const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark";
+    const nextTheme = currentTheme === "light" ? "dark" : "light";
     setTheme(nextTheme);
     const colorScheme = nextTheme === "light" ? "only light" : "dark";
     document.documentElement.style.colorScheme = colorScheme;
@@ -22,8 +28,9 @@ export function ThemeToggle() {
     <button
       className="theme-toggle"
       type="button"
-      aria-label="Toggle color theme"
-      title="Switch color theme"
+      aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
+      aria-pressed={isLight}
+      title={isLight ? "Switch to dark mode" : "Switch to light mode"}
       onClick={toggleTheme}
     >
       <Sun aria-hidden="true" className="sun-icon" size={18} strokeWidth={1.8} />

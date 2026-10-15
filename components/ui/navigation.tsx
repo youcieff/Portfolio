@@ -79,14 +79,14 @@ export function Navigation() {
         <div className="nav-wrap">
           <a className="nav-brand" href="#hero" aria-label={`${site.name}, home`}>
             <Image
-              src="/images/ym-logo-light.webp"
+              src="/images/logo-light.webp"
               alt=""
               width={720}
               height={720}
               className="nav-brand-mark theme-logo-light"
             />
             <Image
-              src="/images/ym-logo-dark.webp"
+              src="/images/logo-dark.webp"
               alt=""
               width={720}
               height={720}
@@ -148,10 +148,23 @@ export function Navigation() {
       >
         <nav aria-label="Mobile navigation">
           {navigation.map(({ label, href }) => (
-            <a className="nav-link" href={href} key={href} onClick={() => setOpen(false)}>
+            <a
+              className="nav-link"
+              href={href}
+              key={href}
+              aria-current={active === href.slice(1) ? "location" : undefined}
+              onClick={() => setOpen(false)}
+            >
               {label}
             </a>
           ))}
+          <a
+            className="button button-primary mobile-sheet-cta"
+            href="#contact"
+            onClick={() => setOpen(false)}
+          >
+            Let&apos;s talk <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
         </nav>
       </div>
     </>

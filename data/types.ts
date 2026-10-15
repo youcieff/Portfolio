@@ -1,5 +1,5 @@
 export type ProjectImage = {
-  src: `/projects/${string}`;
+  src: `/images/projects/${string}`;
   width: number;
   height: number;
   alt: string;

@@ -27,7 +27,7 @@ Deploy to Vercel using the repository root as the project root. Set `FORMSUBMIT_
 
 ## Project images and certificate
 
-Project screenshots are under `public/projects/` and remain WebP. The certificate is served as WebP from `public/certificates/`; `npm run optimize:images` recreates its 1600px image and 800px preview from the ignored source file `certificates/Youssef Maged Hanna.png`.
+All portfolio images are served as WebP from `public/images/`, grouped into `projects/` and `certificates/`. Profile and theme-specific logo assets live at the image root. `npm run optimize:images` recreates the certificate images from the ignored source file `certificates/Youssef Maged Hanna.png`.
 
 ## Print résumé
 
