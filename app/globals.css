@@ -44,13 +44,13 @@
 
 .light {
   color-scheme: light;
-  --page: #f0edf3;
-  --surface: #fbf9fb;
-  --surface-raised: #e9e5ef;
-  --ink: #252231;
-  --muted: #5f5b6d;
-  --faint: #797587;
-  --line: #d9d4e1;
+  --page: #f5f2f7;
+  --surface: #fff;
+  --surface-raised: #eeebf4;
+  --ink: #242033;
+  --muted: #595568;
+  --faint: #716d80;
+  --line: #d3cddd;
   --accent: #6552b5;
   --accent-strong: #4e3d98;
   --accent-secondary: #b45f82;
@@ -64,10 +64,10 @@
   --code-property: #99445f;
   --code-string: #89511f;
   --code-punctuation: #74748a;
-  --ambient-violet: 15%;
-  --ambient-rose: 12%;
-  --ambient-gold: 8%;
-  --shadow: 0 18px 44px rgb(56 42 85 / 9%);
+  --ambient-violet: 12%;
+  --ambient-rose: 8%;
+  --ambient-gold: 5%;
+  --shadow: 0 18px 44px rgb(48 37 75 / 8%);
 }
 
 * {
@@ -342,6 +342,30 @@ img {
 }
 .button-quiet {
   background: transparent;
+}
+.light .button {
+  border-color: color-mix(in srgb, var(--ink) 15%, var(--line));
+  color: var(--ink);
+}
+.light .button-quiet {
+  border-color: color-mix(in srgb, var(--accent-strong) 28%, var(--line));
+  background: linear-gradient(145deg, #fff, color-mix(in srgb, var(--surface-raised) 48%, #fff));
+  box-shadow: inset 0 1px 0 #fff, 0 3px 12px rgb(49 39 82 / 7%);
+}
+.light .button-primary {
+  border-color: var(--accent-strong);
+  color: #fff;
+  background: linear-gradient(115deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 7px 18px color-mix(in srgb, var(--accent-strong) 24%, transparent);
+}
+.light .button-quiet:hover {
+  border-color: var(--accent-strong);
+  background: linear-gradient(145deg, #fff, color-mix(in srgb, var(--accent) 9%, #fff));
+  box-shadow: 0 7px 18px rgb(49 39 82 / 11%);
+}
+.light .button-primary:hover {
+  background: linear-gradient(115deg, color-mix(in srgb, var(--accent) 82%, #fff), var(--accent-strong));
+  box-shadow: 0 9px 22px color-mix(in srgb, var(--accent-strong) 30%, transparent);
 }
 .text-link {
   display: inline-flex;
@@ -665,6 +689,12 @@ img {
     background 0.2s ease,
     transform 0.2s var(--ease-out),
     box-shadow 0.2s ease;
+}
+.light .hero-socials a {
+  border-color: color-mix(in srgb, var(--accent-strong) 18%, var(--line));
+  color: var(--muted);
+  background: color-mix(in srgb, #fff 90%, var(--surface-raised));
+  box-shadow: 0 2px 8px rgb(49 39 82 / 4%);
 }
 .hero-socials a svg {
   flex: 0 0 auto;
