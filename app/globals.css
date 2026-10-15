@@ -430,10 +430,12 @@ img {
   letter-spacing: -0.025em;
 }
 .nav-brand-mark {
+  width: 36px;
+  height: 36px;
   flex: 0 0 auto;
-}
-.brand-mark {
-  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--accent) 32%, transparent));
+  border-radius: 11px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--accent) 35%, transparent));
 }
 .nav-brand-label strong {
   color: var(--accent);
@@ -2881,8 +2883,10 @@ img {
   justify-items: center;
 }
 .intro-logo-mark {
-  width: clamp(5.25rem, 12vw, 7rem);
+  width: clamp(8rem, 17vw, 10.5rem);
   height: auto;
+  border-radius: 22%;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 25%, transparent));
   animation: loader-fade 0.6s 0.08s both;
 }
 .intro-rule {

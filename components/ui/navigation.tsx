@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { navigation, site } from "@/data/site";
 import { ThemeToggle } from "@/components/ui/theme-control";
-import { BrandMark } from "@/components/ui/brand-mark";
 
 export function Navigation() {
   const [active, setActive] = useState("about");
@@ -78,7 +78,13 @@ export function Navigation() {
       <header className="site-header shell" data-scrolled={scrolled}>
         <div className="nav-wrap">
           <a className="nav-brand" href="#hero" aria-label={`${site.name}, home`}>
-            <BrandMark className="nav-brand-mark" size={36} />
+            <Image
+              src="/images/ym-logo.webp"
+              alt=""
+              width={828}
+              height={828}
+              className="nav-brand-mark"
+            />
             <span className="nav-brand-label">Youssef <strong>Maged</strong></span>
           </a>
           <nav className="nav-links" aria-label="Main navigation">

@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { BrandMark } from "@/components/ui/brand-mark";
 
 export function IntroLoader() {
   const [visible, setVisible] = useState(true);
@@ -30,7 +30,14 @@ export function IntroLoader() {
           exit={{ y: "-100%", transition: { duration: 0.58, ease: [0.76, 0, 0.24, 1] } }}
         >
           <div className="intro-lockup" aria-hidden="true">
-            <BrandMark className="intro-logo-mark" size={112} />
+            <Image
+              src="/images/ym-logo.webp"
+              alt=""
+              width={828}
+              height={828}
+              preload
+              className="intro-logo-mark"
+            />
             <span className="intro-rule" />
             <span className="intro-name">Youssef Maged Hanna</span>
             <span className="intro-caption">FULL STACK DEVELOPER</span>
