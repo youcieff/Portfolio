@@ -594,7 +594,7 @@ img {
   max-width: 14ch;
   margin: 0;
   font:
-    600 clamp(3.6rem, 9vw, 7.7rem)/0.91 var(--font-outfit),
+    600 clamp(3.6rem, 9vw, 7.7rem)/0.98 var(--font-outfit),
     sans-serif;
   letter-spacing: -0.075em;
 }
@@ -610,22 +610,27 @@ img {
 }
 .hero h1 .hero-title-name {
   width: fit-content;
+  overflow: visible;
   background: linear-gradient(105deg, var(--ink) 8%, var(--accent) 58%, var(--accent-secondary));
   background-clip: text;
   color: transparent;
 }
 .hero-title-name > span {
-  line-height: 1.02;
+  line-height: 1.12;
+  padding-bottom: 0.08em;
   background: linear-gradient(105deg, var(--ink) 8%, var(--accent) 58%, var(--accent-secondary));
   background-clip: text;
   color: transparent;
 }
 .hero-title-name > span + span {
   position: relative;
-  top: -0.2em;
+  top: -0.14em;
 }
 .hero h1 .hero-role-line {
+  width: max-content;
+  max-width: 100%;
   min-height: 1.08em;
+  white-space: nowrap;
   color: var(--muted);
   font-size: 0.52em;
   line-height: 1.15;
@@ -3349,7 +3354,7 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
     width: calc(100% - 28px);
   }
   .hero h1 {
-    font-size: clamp(2.6rem, 11.5vw, 4.3rem);
+    font-size: clamp(3rem, 14vw, 4.6rem);
   }
   .hero-socials {
     flex-wrap: wrap;
