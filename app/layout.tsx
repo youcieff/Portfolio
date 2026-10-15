@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark light",
+  colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f5f4fb" },
     { media: "(prefers-color-scheme: dark)", color: "#090c19" },
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       suppressHydrationWarning
     >
       <head>
-        <meta name="color-scheme" content="dark light" />
+        <meta name="color-scheme" content="light dark" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }}

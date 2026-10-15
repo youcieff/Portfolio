@@ -43,7 +43,7 @@
 }
 
 .light {
-  color-scheme: light;
+  color-scheme: only light;
   --page: #f5f2f7;
   --surface: #fff;
   --surface-raised: #eeebf4;
@@ -3346,15 +3346,34 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
     letter-spacing: 0.11em;
   }
   .hero-kicker {
+    justify-content: center;
     column-gap: 0.55rem;
     font-size: 0.64rem;
     letter-spacing: 0.07em;
+  }
+  .hero-kicker-location {
+    flex-basis: auto;
+    padding-left: 0;
   }
   .shell {
     width: calc(100% - 28px);
   }
   .hero h1 {
     font-size: clamp(3rem, 14vw, 4.6rem);
+    margin-inline: auto;
+    text-align: center;
+  }
+  .hero h1 .hero-title-name,
+  .hero h1 .hero-role-line {
+    margin-inline: auto;
+  }
+  .hero-summary {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .hero-actions,
+  .hero-socials {
+    justify-content: center;
   }
   .hero-socials {
     flex-wrap: wrap;
