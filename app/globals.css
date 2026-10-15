@@ -2909,8 +2909,8 @@ img {
   justify-content: center;
   gap: 0.7rem;
   color: var(--muted);
-  font: 600 0.72rem/1.5 var(--font-mono);
-  letter-spacing: 0.2em;
+  font: 600 0.86rem/1.5 var(--font-mono);
+  letter-spacing: 0.17em;
   white-space: nowrap;
   animation: loader-fade 0.55s 0.75s both;
 }
@@ -3325,8 +3325,8 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
     font-size: clamp(1.55rem, 8vw, 2rem);
   }
   .intro-caption {
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
   }
   .hero-kicker {
     column-gap: 0.55rem;
