@@ -3073,7 +3073,13 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
 .project-card[data-in-view="true"] .project-content > :nth-child(4) { transition-delay: 255ms; }
 .project-card[data-in-view="true"] .project-content > :nth-child(5) { transition-delay: 320ms; }
 .no-js .intro-loader {
-  display: none !important;
+  animation: intro-loader-fallback 0.45s ease 8s forwards;
+}
+@keyframes intro-loader-fallback {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media (max-width: 760px) {
