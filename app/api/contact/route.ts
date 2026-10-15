@@ -85,30 +85,46 @@ export async function POST(request: Request) {
       }),
       signal: AbortSignal.timeout(12_000),
     });
-    if (!response.ok)
-      return NextResponse.json(
-        {
-          message:
-            "Your message could not be sent right now. Please try again or email me directly.",
-        },
-        { status: 502 },
-      );
-    const result: unknown = await response.json();
-    if (
+    const result: unknown = await response.json().catch(() => null);
+    const providerMessage =
+      typeof result === "object" && result !== null && "message" in result &&
+      typeof result.message === "string"
+        ? result.message
+        : "";
+    const providerSucceeded =
       typeof result === "object" &&
       result !== null &&
       "success" in result &&
-      (result.success === "false" || result.success === false)
-    )
+      (result.success === "true" || result.success === true);
+    const providerRejected = !response.ok || !providerSucceeded;
+
+    if (providerRejected) {
+      if (/confirm|activat|verif/i.test(providerMessage))
+        return NextResponse.json(
+          {
+            message:
+              "The contact email needs to be confirmed with FormSubmit before it can receive messages. Check its inbox for the activation email.",
+          },
+          { status: 503 },
+        );
+      console.error("FormSubmit rejected a contact message.", {
+        status: response.status,
+        message: providerMessage.slice(0, 180),
+      });
       return NextResponse.json(
         {
           message:
-            "Your message could not be sent right now. Please try again or email me directly.",
+            "Your message could not be sent right now. Please email me directly.",
         },
         { status: 502 },
       );
+    }
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (error) {
+    console.error(
+      "Contact delivery request failed.",
+      error instanceof Error ? error.name : "Unknown error",
+    );
     return NextResponse.json(
       {
         message: "Your message could not be sent right now. Please try again or email me directly.",
