@@ -3265,6 +3265,13 @@ body:has(.project-dialog[open]) .custom-cursor:not(.dialog-cursor) {
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
+  .project-media.browser {
+    aspect-ratio: 1.58 / 1;
+    padding: 0.65rem;
+  }
+  .project-card-featured .project-media.browser {
+    aspect-ratio: 1.58 / 1;
+  }
   .project-card-featured .project-content {
     padding: 1rem;
   }
