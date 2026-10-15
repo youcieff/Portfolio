@@ -30,18 +30,29 @@ export function BrandMark({ className, size = 40 }: BrandMarkProps) {
         strokeLinecap="round"
       />
       <text
-        x="31"
+        x="23"
         y="39"
         fill="var(--ink)"
         fontFamily="var(--font-outfit), sans-serif"
         fontSize="23"
         fontWeight="800"
-        letterSpacing="-2.4"
+        letterSpacing="-1.2"
         textAnchor="middle"
       >
-        YM
+        Y
       </text>
-      <circle cx="49" cy="44" r="3.5" fill="var(--accent-secondary)" />
+      <text
+        x="41"
+        y="39"
+        fill="var(--accent)"
+        fontFamily="var(--font-outfit), sans-serif"
+        fontSize="23"
+        fontWeight="800"
+        letterSpacing="-1.2"
+        textAnchor="middle"
+      >
+        M
+      </text>
     </svg>
   );
 }
