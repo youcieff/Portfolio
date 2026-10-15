@@ -10,6 +10,9 @@ export function ThemeToggle() {
   function toggleTheme() {
     const nextTheme = isLight ? "dark" : "light";
     setTheme(nextTheme);
+    const colorScheme = nextTheme === "light" ? "only light" : "dark";
+    document.documentElement.style.colorScheme = colorScheme;
+    document.querySelector('meta[name="color-scheme"]')?.setAttribute("content", colorScheme);
     document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
       meta.setAttribute("content", nextTheme === "light" ? "#f5f4fb" : "#090c19");
     });
